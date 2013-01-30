@@ -1,0 +1,35 @@
+a) Pripravite razred Agencija, ki bo omogočal prodajo aranžmajev, ki jih v
+agenciji ponujajo. Oddihe, ki jih ponuja agencija hranite v polju (ali
+seznamu), ki je privaten atribut in ga agencija ne izpostavlja preko get/set
+metod. Za delo z ponujenimi aranžmaji naj razred Agencija ponuja naslednje
+metode:
+void dodajOddih(Oddih oddih), ki doda izbran oddih v seznam ponudbe agencije.
+void odstraniOddih(Oddih oddih), ki izbrani oddih odstrani iz ponudbe,
+Oddih vrniOddih(int indeks),
+int številoOddihov().
+
+b) Vodjo agencije zanima stanje poslovanja. Razredu Potnik dodajte atribut
+stanje plačila, ki je naštevalnega tipa (rezerviral, plačal). Seznam
+prijavljenih potnikov vodite v razredu Paket. Razredu Agencija dodajte
+metodoporociloStanjaAgencije(), ki združi podatke posameznih kategorij
+aranžmajev ter jih združeno za vse tipe vrne v sledeči obliki:
+Počitnice: število_rezerviranih, število prodanih, zasedenost kapacitet,
+Križarjenje: število_rezerviranih, število prodanih, zasedenost kapacitet
+Izlet: število_rezerviranih, število prodanih, zasedenost kapacitet
+Pri implementaciji metode je potrebno uporabiti operator instanceof. Za
+implementacijo funkcionalnosti lahko dodate obstoječim razredom poljubne
+atribute ali metode.
+
+
+c) Pripravite dve izjemi: PaketZasedenException, OddihAktivenException.
+Izjema PaketZasedenException se proži vedno, ko želimo dodati rezervacijo,
+povpraševanje ali plačilo, ter ni več prostih mest
+(stev_rezerviranih+stevilo_placanih < prosta_mesta). PaketAktivenException naj
+se proži v metodi brisanja oddiha v razredu Agencija, kadar želimo izbrisati
+oddih katerega paketi že vsebujejo razervacije oz. plačila potovanj. Prožene
+izjeme na ustreznih mestih tudi ustrezno lovite. Po lastni presoji lahko dodate
+poljubne izjeme, če presodite, da je njihova vpeljava smiselna.
+
+
+Cilji. Po nalogi morate obvladovati koncepte kot so: uporaba izjem ter
+operatorja instanceof.
