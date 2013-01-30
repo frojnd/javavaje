@@ -1,0 +1,41 @@
+a) Ker je bo razred Oddih v nadaljevanju od dodajanju funkcionalnosti postal
+preveč obsežen ga je potrebno razbiti. Iz njega torej izpeljite razred Paket, v
+katerega premaknete atribute cena, število mest, datum odhoda ter datum
+vrnitve. Oddihu dodajte atribut ponudbe paketov, ki naj predstavlja polje oz.
+seznam paketov. 
+
+b) Poskrbite, da bodo razredi, ki ste jih razvili do sedaj, skladni s pravili
+ograjevanja - razredi naj imajo javne metode ter privatne atribute. Ograjevanja
+se strogo držite tudi pri vseh nadaljno implementiranih razredih. Vse razrede
+opremite tudi z metodami toString, ki naj vrnejo vrednosti atributov razreda.
+
+c) Razredom Oseba, Destinacija in Oddih dodajte še tretji konstruktor, naloga
+katerega naj bo inicializacija vseh do zdaj dodanih atributov omenjenih
+razredov. Pri tem poskrbite, da programske kode prirejanja parametrov atributov
+v konstruktorjih ne podvajate. Namig: uporaba konstrukta this.
+
+d) Končna cena oddiha je odvisna od različnih okoliščin, zato razred Paket
+opremite z metodami izračuna cene:
+
+izracunajCeno() - vrne običajno prodajno ceno paketa za posameznika,
+izracunajCeno(int velikostSkupine) - če se popotniki na oddih prijavijo kot
+skupina(vsaj 10 članov) prejmejo na vsakega člana 5% popusta, zmanjšajo se tudi
+skupni administracijski stroški v višini 12€.
+izracunajCeno(int številoOdraslih, int številoOtrok) - izračuna ceno paketa za
+družine, pri čemer plačajo družine za vsakega otroka 50% cene odraslega.
+Konstante, ki jih boste uporabili pri implementaciji zgoraj zapisanih metod,
+zapišite skladno s standardi Jave.
+
+e) Programsko kodo opremite z komentarji in anotacijami namenjenimi
+avtomatskemu generiranju dokumentacije iz izvorne kode ter demonstritajte
+generiranje dokumentacije s pomočjo orodja javadoc. Iz nabora orodij JDK
+demonstriranje tudi orodji za prevajanje in zaganjanje programov iz ukazne
+vrstice.
+
+f) V prvem sklopu implementirani testni razred nadgradite tako, da boste lahko
+demonstrirali delovanje novo dodanih konceptov in funkcionalnosti.
+
+
+Cilji. Po opravljenih nalogah sklopa 2 morate obvladati koncepte, kot so
+»this«, »ograjevanje«, »operacijski polimorfizem«, »konstante« ter metodo
+»toString«. Poznati morate tudi možnosti uporabe orodij JDK.

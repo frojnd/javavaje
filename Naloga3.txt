@@ -1,0 +1,38 @@
+a) V prejšnjih nalogah implementiran razred Oddih razširite z dodatnim
+atributom opis ponudbe ter metodo vrniPonudbo, ki ne prejme nobenih parametrov,
+vrača pa vrednost tipa String. Vsak izmed podrazredov razreda Oddih naj v
+metodi vrniPonudbo generira ponudbo glede na atribut opis ter druge razredne
+atribute. Razred Oddih in Oseba označite kot abstraktni razred (razmislite
+zakaj sta razreda abstraktna).
+
+b) V nadaljevanju iz razreda Oseba izpeljite naslednja podrazreda:
+Potnik, ki mu dodate atribute kontaktna številka, naslov, pošta in poštna
+številka.
+Vodic, ki mu dodate atribut logične vrednosti, ki označuje, če ima licenco
+gorskega vodnika ter atribut s poljem, v katerem se hranijo tuji jeziki, ki jih
+vodič govori tekoče (Namig: možnosti tujih jezikov, naj bodo implementirane s
+pomočjo naštevalnih tipov).
+Izpeljane razrede dopolnite z ustreznimi konstruktorji, get/set metodami ter
+ustrezno predefinirano toString metodo. Pri predefiniranju metode toString
+uporabite metodo toString nadrazreda.
+
+c) Razred Oddih razširite z naslednjimi podrazredi:
+Pocitnice, ki mu dodate atributoma naziv hotela, število zvezdic hotela,prevoz
+(naštevalni tip z vrednostmi “letalski”, “avtobusni”, “vlak”, “lastni”) ter
+atributom naštevalnega tipa ponudba z vrednostmi (“nočitev”, “pol penzion”,
+“polni penzion”).
+Krizarjenje, ki je dopolnjen z atributoma naziv ladjarja ter mesto odhoda.
+Izlet, ki je dopolnjen z atributoma zbirno mesto ter ura odhoda.
+Izpeljane razrede dopolnite z ustreznimi konstruktorji, get/set metodami ter
+ustrezno predefinirano toString metodo. Pri predefiniranju metode toString
+uporabite metodo toString nadrazreda.
+
+f) Do sedaj implementirane razrede smiselno razvrstite v naslednje pakete:
+si.unimb.ruk.vaš_priimek.logika
+si.unimb.ruk.vaš_priimek.logika.osebe
+si.unimb.ruk.vaš_priimek.logika.oddihi
+
+
+Cilji. Po nalogi morate obvladovati koncepte kot so: uporaba vmesnikov,
+vključitveni polimorfizem, abstraktni razred.
+

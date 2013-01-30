@@ -1,0 +1,30 @@
+a) V sklopu naloge razvite 3 razrede: Oseba, Oddih in Destinacija. Razred Oseba
+naj ima atribute: ime, priimek, eposta, rojstni datum. Razred Destinacija naj
+ima atribute: naziv, lokacija, država. V razred Oddih vključite atribute naziv,
+destinacija, vodič, datum začetka oddiha, datum konca oddiha, cena ter število
+mest. Poskrbite, da bodo vsi atributi ustreznega podatkovnega tipa glede na tip
+podatka, ki ga hranijo.
+
+
+b) Za vsakega izmed atributov implementiranih razredov Oseba, Oddih in
+Destinacija dodajte getter in setter metode.
+
+
+c) Vsak izmed navedenih razredov naj ima poleg privzetega konstruktorja tudi
+konstruktorje, ki prejmejo naslednje parametre: konstruktor razreda Oseba naj
+prejme parametra ime in priimek, konstruktorja razreda Destinacija in Oddih pa
+parameter naziv. Parametri, ki jih prejmejo konstruktorji, naj dobo poimenovani
+enako kot njim pripadajoči atributi. 
+
+
+d) Za zaključek implementirajte še testni razred Zagonski. V zagonski metodi
+omenjenega razreda omogočite, da bo uporabnik lahko vnesel podatke o oddihih
+ter vnesene oddihe izpisal na zaslon. Za vnos podatkov uporabite razred
+java.util.Scanner. Podrobnosti o razredu najdete v dokumentaciji Jave.
+
+
+
+
+Cilji. Po opravljeni nalogi 1 morate obvladati koncepte, kot so »razred«,
+»objekt«, »referenca«, “konstruktor” ter “metode get/set”. Znati morate
+uporabljati tudi dokumentacijo javanskih razredov.
