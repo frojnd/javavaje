@@ -20,7 +20,8 @@ package si.unimb.ruk.prijatelj.logika.oddihi;
  */
 
 import java.text.SimpleDateFormat;
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.List;
 
 import si.unimb.ruk.prijatelj.logika.osebe.Oseba;
 import si.unimb.ruk.prijatelj.logika.osebe.Vodic;
@@ -33,7 +34,8 @@ public abstract class Oddih {
 	private String naziv;
 	private Destinacija destinacija;
 	private Oseba vodic;
-	private Vector<Paket> ponudbaPaketov;
+	//private Vector<Paket> ponudbaPaketov;
+	private List<Paket> ponudbaPaketov;
 	private String opisPonudbe;
 	
 	// privzeti konstruktor
@@ -46,7 +48,7 @@ public abstract class Oddih {
 		naziv = "";
 		destinacija = new Destinacija();
 		vodic = new Vodic();
-		ponudbaPaketov = new Vector<Paket>();
+		ponudbaPaketov = new ArrayList<Paket>();
 	}
 	
 	// konstruktorja razreda Destinacija in Oddih naj prjmeta parameter naziv
@@ -64,7 +66,7 @@ public abstract class Oddih {
 	 * @param vodic
 	 * @param ponudbaPaketov
 	 */
-	public Oddih(String naziv, Destinacija destinacija, Oseba vodic, Vector<Paket> ponudbaPaketov) {
+	public Oddih(String naziv, Destinacija destinacija, Oseba vodic, List<Paket> ponudbaPaketov) {
 		this(naziv);
 		this.destinacija = destinacija;
 		this.vodic = vodic;
@@ -118,14 +120,14 @@ public abstract class Oddih {
 	/**
 	 * @return
 	 */
-	public Vector<Paket> getPonudbaPaketov() {
+	public List<Paket> getPonudbaPaketov() {
 		return ponudbaPaketov;
 	}
 
 	/**
 	 * @param ponudbaPaketov
 	 */
-	public void setPonudbaPaketov(Vector<Paket> ponudbaPaketov) {
+	public void setPonudbaPaketov(List<Paket> ponudbaPaketov) {
 		this.ponudbaPaketov = ponudbaPaketov;
 	}
 	
@@ -134,7 +136,6 @@ public abstract class Oddih {
 		return opisPonudbe;
 	}
 	
-	@Override
 	public String toString() {
 		SimpleDateFormat df = new SimpleDateFormat();
         df.applyPattern("dd/MM/yyyy");

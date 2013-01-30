@@ -44,7 +44,6 @@ public class Pocitnice extends Oddih{
 		this.ponudba = ponudba;
 	}
 	
-	@Override
 	public String toString() {
 		return super.toString();
 	}

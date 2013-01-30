@@ -34,7 +34,6 @@ public class Izlet extends Oddih{
 		this.uraOdhoda = uraOdhoda;
 	}
 	
-	@Override
 	public String toString() {
 		return super.toString();
 	}

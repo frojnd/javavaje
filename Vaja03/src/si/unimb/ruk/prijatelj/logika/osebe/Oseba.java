@@ -151,7 +151,6 @@ public abstract class Oseba {
 		this.rojstniDatum = rojstniDatum;
 	}
 	
-	@Override
 	public String toString() {
 		String str = new String();
 		str = "Ime: " + ime + "\n";

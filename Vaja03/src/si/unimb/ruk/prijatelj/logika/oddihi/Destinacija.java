@@ -89,10 +89,9 @@ public class Destinacija {
 		this.drzava = drzava;
 	}
 	
-	@Override
 	public String toString() {
 		String str = new String();
-		str = "Naziv: "+naziv+", lokacija:"+lokacija+", država:"+drzava;
+		str = "Naziv: "+naziv+", lokacija:"+lokacija+", drï¿½ava:"+drzava;
 		return str;
 	}
 	

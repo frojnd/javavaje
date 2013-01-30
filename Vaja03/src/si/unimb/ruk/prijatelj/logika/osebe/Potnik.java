@@ -55,7 +55,6 @@ public class Potnik extends Oseba{
 		this.postnaStevilka = postnaStevilka;
 	}
 	
-	@Override
 	public String toString() {
 		String str = super.toString();
 		str = str + "\n Kontakt: "+ kontaktnaStevilka + "\n";

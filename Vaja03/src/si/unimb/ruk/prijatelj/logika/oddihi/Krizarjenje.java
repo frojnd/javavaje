@@ -27,7 +27,6 @@ public class Krizarjenje extends Oddih{
 		this.mestoOdhoda = mestoOdhoda;
 	}
 	
-	@Override
 	public String toString() {
 		return super.toString();
 	}

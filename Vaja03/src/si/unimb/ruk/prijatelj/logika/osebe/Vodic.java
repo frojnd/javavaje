@@ -40,7 +40,6 @@ public class Vodic extends Oseba{
 		this.govori = govori;
 	}
 	
-	@Override
 	public String toString() {
 		String str = new String();
 		str = super.toString();

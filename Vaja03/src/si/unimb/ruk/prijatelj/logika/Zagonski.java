@@ -4,9 +4,10 @@ razreda omogoƒçite, da bo uporabnik lahko vnesel podatke o oddihih ter vnesene o
 izpisal na zaslon.
  */
 package si.unimb.ruk.prijatelj.logika;
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
+import java.util.List;
 import java.util.Scanner;
-import java.util.Vector;
 
 import si.unimb.ruk.prijatelj.logika.oddihi.Destinacija;
 import si.unimb.ruk.prijatelj.logika.oddihi.Izlet;
@@ -21,7 +22,7 @@ import si.unimb.ruk.prijatelj.logika.osebe.Vodic;
 public class Zagonski {
 	public static void main(String args[]) {
 		
-		Vector<Oddih> oddihi = new Vector<Oddih>();
+		List<Oddih> oddihi = new ArrayList<Oddih>();
 
 		Scanner in = new Scanner(System.in);
 		int x=0;
@@ -86,15 +87,15 @@ public class Zagonski {
 				
 				Destinacija cilj = new Destinacija(nazivD);
 				
-				Vector<Paket> seznamPaketov = new Vector<Paket>();
+				List<Paket> seznamPaketov = new ArrayList<Paket>();
 				Paket paket = new Paket(cena, datumZacetka, datumKonca, prostaMesta);
 				seznamPaketov.add(paket);
 				
-				System.out.println("IzraËunaj ceno za X potnikov: ");
+				System.out.println("Izracunaj ceno za X potnikov: ");
 				int stPotnikov = sc.nextInt();
 				System.out.println("Cena za "+stPotnikov+" potnikov = "+paket.izracunajCeno(stPotnikov));
 				
-				System.out.println("IzraËunaj ceno za X odraslih in Y otrok: ");
+				System.out.println("Izracunaj ceno za X odraslih in Y otrok: ");
 				int stOtrok = sc.nextInt();
 				int stOdraslih = sc.nextInt();
 				
