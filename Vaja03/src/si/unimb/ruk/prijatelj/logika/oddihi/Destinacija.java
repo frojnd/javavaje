@@ -91,7 +91,7 @@ public class Destinacija {
 	
 	public String toString() {
 		String str = new String();
-		str = "Naziv: "+naziv+", lokacija:"+lokacija+", dr�ava:"+drzava;
+		str = "Naziv: "+naziv+", lokacija:"+lokacija+", drzava:"+drzava;
 		return str;
 	}
 	

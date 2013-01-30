@@ -1,5 +1,7 @@
 package si.unimb.ruk.prijatelj.logika.osebe;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 
 /**
@@ -9,14 +11,13 @@ import java.util.Vector;
 public class Vodic extends Oseba{
 	
 	private boolean licencaGorskegaVodnika;
-	private Vector<Jezik> govori;
+	private List<Jezik> govori = new ArrayList<Vodic.Jezik>();
 	
 	// nastevni tip za jezike
 	public enum Jezik{Slovensko, Nemsko, Italjansko, Spansko, Anglesko}
 
 	public Vodic() {
 		licencaGorskegaVodnika = false;
-		govori = new Vector<Vodic.Jezik>();
 	}
 	
 	public Vodic(String ime, String priimek)
@@ -32,7 +33,7 @@ public class Vodic extends Oseba{
 		this.licencaGorskegaVodnika = licencaGorskegaVodnika;
 	}
 
-	public Vector<Jezik> getGovori() {
+	public List<Jezik> getGovori() {
 		return govori;
 	}
 
