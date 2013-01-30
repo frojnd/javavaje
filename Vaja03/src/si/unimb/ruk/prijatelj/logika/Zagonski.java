@@ -81,6 +81,7 @@ public class Zagonski {
 				int mesecK = sc.nextInt()-1;
 				int danK = sc.nextInt();
 				GregorianCalendar datumKonca = new GregorianCalendar(letoK,mesecK, danK);
+				sc.nextLine(); // This line consumes the \n character
 			
 				System.out.println("Vnesi naziv destinacije: ");
 				String nazivD = sc.nextLine();

@@ -103,7 +103,7 @@ public class Paket extends Oddih{
 	}
 	
 	//Ce se popotniki na oddih prijavijo kot skupina(vsaj 10 clanov) prejmejo na vsakega clana 5% popusta, 
-	//zmanj�ajo se tudi skupni administracijski stroski v visini 12eur.
+	//zmanjsajo se tudi skupni administracijski stroski v visini 12eur.
 	/**
 	 * @param velikostSkupine
 	 * @return
