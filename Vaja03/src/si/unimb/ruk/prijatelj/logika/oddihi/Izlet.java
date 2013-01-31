@@ -8,7 +8,7 @@ package si.unimb.ruk.prijatelj.logika.oddihi;
 public class Izlet extends Oddih{
 
 	private String zbirnoMesto;
-	private int uraOdhoda;
+	private String uraOdhoda;
 	
 	public Izlet() {
 	}
@@ -26,15 +26,21 @@ public class Izlet extends Oddih{
 		this.zbirnoMesto = zbirnoMesto;
 	}
 
-	public int getUraOdhoda() {
+	public String getUraOdhoda() {
 		return uraOdhoda;
 	}
 
-	public void setUraOdhoda(int uraOdhoda) {
+	public void setUraOdhoda(String uraOdhoda) {
 		this.uraOdhoda = uraOdhoda;
 	}
 	
 	public String toString() {
-		return super.toString();
+		String str = new String();
+		str = super.toString();
+		
+		str += "\nZbirno mesto: " + getZbirnoMesto();
+		str += "\nUra odhoda: " + getUraOdhoda() + "\n";
+		
+		return str;
 	}
 }

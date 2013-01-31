@@ -14,7 +14,7 @@ public class Vodic extends Oseba{
 	private List<Jezik> govori = new ArrayList<Vodic.Jezik>();
 	
 	// nastevni tip za jezike
-	public enum Jezik{Slovensko, Nemsko, Italjansko, Spansko, Anglesko}
+	public enum Jezik{Slovensko, Nemsko, Italijansko, Spansko, Anglesko}
 
 	public Vodic() {
 		licencaGorskegaVodnika = false;
@@ -37,14 +37,14 @@ public class Vodic extends Oseba{
 		return govori;
 	}
 
-	public void setGovori(Vector<Jezik> govori) {
+	public void setGovori(List<Jezik> govori) {
 		this.govori = govori;
 	}
 	
 	public String toString() {
 		String str = new String();
 		str = super.toString();
-		str = str + "\n Ima licenco gorskega vodnika: ";
+		str = str + "\nIma licenco gorskega vodnika: ";
 		if (licencaGorskegaVodnika)
 		{
 			str = str + "DA";
@@ -54,10 +54,10 @@ public class Vodic extends Oseba{
 			str = str + "NE";
 		}
 		
-		str = str + "\n Govori: ";
+		str = str + "\nGovori: ";
 		
 		for (int i = 0; i < govori.size(); i++) {
-			str = str + govori.get(i) + "\n";
+			str = str + govori.get(i) + " ";
 		}
 		return str;
 	}

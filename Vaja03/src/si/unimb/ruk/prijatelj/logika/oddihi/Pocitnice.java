@@ -19,6 +19,10 @@ public class Pocitnice extends Oddih{
 	
 	}
 	
+	public Pocitnice(String naziv) {
+		super(naziv);
+	}
+	
 	public String getNazivHotela() {
 		return nazivHotela;
 	}
@@ -45,7 +49,13 @@ public class Pocitnice extends Oddih{
 	}
 	
 	public String toString() {
-		return super.toString();
+		String str = new String();
+		str = super.toString();
+		
+		str += "\nNaziv hotela: " + getNazivHotela() ;
+		str += "\nStevilo zvezdic: " + getStZvezdic() + "\n";
+		
+		return str;
 	}
 	
 }
