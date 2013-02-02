@@ -1,5 +1,6 @@
 package si.unimb.ruk.prijatelj.logika.oddihi;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import si.unimb.ruk.prijatelj.logika.osebe.Potnik;
@@ -12,19 +13,27 @@ import si.unimb.ruk.prijatelj.logika.osebe.Potnik.Placilo;
  * Razred Paket izpeljan iz razreda Oddih
  */
 public class Paket extends Oddih{
-		
+
 	private double cena;
 	private GregorianCalendar datum_zacetka;
 	private GregorianCalendar datum_konca;
 	private int stevilo_mest;
 	private List<Potnik> prijavljeniPotniki;
-	
+
+	public List<Potnik> getPrijavljeniPotniki() {
+		return prijavljeniPotniki;
+	}
+
+	public void setPrijavljeniPotniki(List<Potnik> prijavljeniPotniki) {
+		this.prijavljeniPotniki = prijavljeniPotniki;
+	}
+
 	private final int minPopustPotnikov = 10;
 	private final int popustVelikaSkupina = 12;
 	private final int popustSkupinaProcent = 5;
 	private final double popustOtrociProcent = 0.5;
-	
-	
+
+
 	/**
 	 * Konstruktor paket 
 	 * 
@@ -39,9 +48,9 @@ public class Paket extends Oddih{
 		this.datum_konca = datum_konca;
 		this.stevilo_mest = stevilo_mest;
 	}
-	
+
 	//getter in setter metode
-	
+
 	/**
 	 * @return
 	 */
@@ -90,22 +99,44 @@ public class Paket extends Oddih{
 	public void setStevilo_mest(int stevilo_mest) {
 		this.stevilo_mest = stevilo_mest;
 	}
-	
-	
+
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
+	/*
 	public String toString(){
 		return "Cena: " + cena + ", Datum zacetka: " + datum_zacetka.get(Calendar.DAY_OF_MONTH)+ "."+ datum_zacetka.get(Calendar.MONTH)+ "." + datum_zacetka.get(Calendar.YEAR) + ", Datum konca: " + datum_konca.get(Calendar.DAY_OF_MONTH)+ "."+ datum_konca.get(Calendar.MONTH)+ "." + datum_konca.get(Calendar.YEAR) + ", Stevilo mest: " + stevilo_mest + "\n";
 	}
-	
+	*/
+	public String toString(){
+		String str = new String();
+		
+		SimpleDateFormat df = new SimpleDateFormat();
+		df.applyPattern("dd/MM/yyyy");
+		
+		str = "\nIzpis podatkov o paketih: ";
+		str += "\nCena: " + cena;
+		str += "\nDatum zacetka: " + df.format(datum_zacetka.getTime());
+		str += "\nDatum konca: " + df.format(datum_konca.getTime());
+		str += "\nStevilo prostih mest: " + stevilo_mest;
+		
+		str += "\nSeznamPotnikov: \n";
+		
+		for (int i = 0; i < prijavljeniPotniki.size(); i++) {
+			str = str + prijavljeniPotniki.get(i).toString();
+		}
+		
+		return str;
+	}
+
 	/**
 	 * @return
 	 */
 	public double izracunajCeno(){
 		return cena;
 	}
-	
+
 	//Ce se popotniki na oddih prijavijo kot skupina(vsaj 10 clanov) prejmejo na vsakega clana 5% popusta, 
 	//zmanjsajo se tudi skupni administracijski stroski v visini 12eur.
 	/**
@@ -132,26 +163,26 @@ public class Paket extends Oddih{
 		}
 		else return cena*steviloOdraslih;		
 	}
-	
+
 	/* 
 	 * izjema PaketZasedenException se prozi vedno, ko zelimo dodati rezervacijo, 
 	 * povprasevanje ali placilo ter ni vec prostih mest (stRezerviranih+stPlacanih < prostaMesta
 	 */
-	
+
 	public void prijaviPotnika(Potnik potnik) throws PaketZasedenException {
-		if (this.stevilo_mest +1 > prijavljeniPotniki.size())
+		if (this.stevilo_mest == prijavljeniPotniki.size())
 		{
 			throw new PaketZasedenException();
 		}
 		prijavljeniPotniki.add(potnik);
-		
+
 	}
-	
+
 	public void odjaviPotnika(Potnik potnik)
 	{
 		prijavljeniPotniki.remove(potnik);
 	}
-	
+
 	public Integer steviloRezerviranihOddihov()
 	{
 		Integer rezervirani = 0 ;
@@ -162,10 +193,10 @@ public class Paket extends Oddih{
 				rezervirani ++;
 			}
 		}
-		
+
 		return rezervirani;
 	}
-	
+
 	public Integer steviloProdanihOddihov()
 	{
 		Integer prodani = 0 ;
@@ -176,7 +207,7 @@ public class Paket extends Oddih{
 				prodani ++;
 			}
 		}
-		
+
 		return prodani;
 	}
 	
@@ -187,12 +218,12 @@ public class Paket extends Oddih{
 		/**
 		 * 
 		 */
-		
+
 		@Override
 		public String toString() {
-			
+
 			return "Napaka! Ta paket je ze zaseden!"+super.toString();
 		}
-		
+
 	}	
 }

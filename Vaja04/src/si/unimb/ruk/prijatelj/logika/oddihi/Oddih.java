@@ -34,7 +34,6 @@ public abstract class Oddih {
 	protected String naziv;
 	protected Destinacija destinacija;
 	protected Oseba vodic;
-	//private Vector<Paket> ponudbaPaketov;
 	protected List<Paket> ponudbaPaketov;
 	protected String opisPonudbe;
 	
