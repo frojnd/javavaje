@@ -31,12 +31,12 @@ import si.unimb.ruk.prijatelj.logika.osebe.Vodic;
  *
  */
 public abstract class Oddih {
-	private String naziv;
-	private Destinacija destinacija;
-	private Oseba vodic;
+	protected String naziv;
+	protected Destinacija destinacija;
+	protected Oseba vodic;
 	//private Vector<Paket> ponudbaPaketov;
-	private List<Paket> ponudbaPaketov;
-	private String opisPonudbe;
+	protected List<Paket> ponudbaPaketov;
+	protected String opisPonudbe;
 	
 	// privzeti konstruktor
 	

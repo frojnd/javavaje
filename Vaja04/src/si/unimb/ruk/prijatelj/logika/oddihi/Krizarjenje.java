@@ -40,4 +40,19 @@ public class Krizarjenje extends Oddih{
 		
 		return str;
 	}
+	
+	public String vrniPonudbo() {
+		String str = new String();
+		
+		str = "\nVrniPonudbo(): ";
+		str += "\nNaziv oddiha: " + naziv;
+		str += "\nDestinacija: " + destinacija;
+		str += "\nVodic: " + vodic;
+		str += "\nIzbrani paket iz ponudbe paketov: " + ponudbaPaketov;
+		str += "\nOpis ponudbe je sledec: " + opisPonudbe;
+		str += "\nNaziv ladjarja je: " + nazivLadjarja;
+		str += "\nMesto odhoda je: " + mestoOdhoda;
+		
+		return str;
+	}
 }

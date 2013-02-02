@@ -2,6 +2,9 @@ package si.unimb.ruk.prijatelj.logika.oddihi;
 
 import java.util.*;
 
+import si.unimb.ruk.prijatelj.logika.osebe.Potnik;
+import si.unimb.ruk.prijatelj.logika.osebe.Potnik.Placilo;
+
 
 
 /**
@@ -14,6 +17,7 @@ public class Paket extends Oddih{
 	private GregorianCalendar datum_zacetka;
 	private GregorianCalendar datum_konca;
 	private int stevilo_mest;
+	private List<Potnik> prijavljeniPotniki;
 	
 	private final int minPopustPotnikov = 10;
 	private final int popustVelikaSkupina = 12;
@@ -128,4 +132,67 @@ public class Paket extends Oddih{
 		}
 		else return cena*steviloOdraslih;		
 	}
+	
+	/* 
+	 * izjema PaketZasedenException se prozi vedno, ko zelimo dodati rezervacijo, 
+	 * povprasevanje ali placilo ter ni vec prostih mest (stRezerviranih+stPlacanih < prostaMesta
+	 */
+	
+	public void prijaviPotnika(Potnik potnik) throws PaketZasedenException {
+		if (this.stevilo_mest +1 > prijavljeniPotniki.size())
+		{
+			throw new PaketZasedenException();
+		}
+		prijavljeniPotniki.add(potnik);
+		
+	}
+	
+	public void odjaviPotnika(Potnik potnik)
+	{
+		prijavljeniPotniki.remove(potnik);
+	}
+	
+	public Integer steviloRezerviranihOddihov()
+	{
+		Integer rezervirani = 0 ;
+		for (Potnik potnik : prijavljeniPotniki) 
+		{
+			if (potnik.getStanjePlacila() == Placilo.rezerviral)
+			{
+				rezervirani ++;
+			}
+		}
+		
+		return rezervirani;
+	}
+	
+	public Integer steviloProdanihOddihov()
+	{
+		Integer prodani = 0 ;
+		for (Potnik potnik : prijavljeniPotniki) 
+		{
+			if (potnik.getStanjePlacila() == Placilo.placal)
+			{
+				prodani ++;
+			}
+		}
+		
+		return prodani;
+	}
+	
+	@SuppressWarnings("serial")
+	public class PaketZasedenException extends Exception
+	{
+
+		/**
+		 * 
+		 */
+		
+		@Override
+		public String toString() {
+			
+			return "Napaka! Ta paket je ze zaseden!"+super.toString();
+		}
+		
+	}	
 }

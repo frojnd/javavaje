@@ -1,5 +1,7 @@
 package si.unimb.ruk.prijatelj.logika.osebe;
 
+import java.util.GregorianCalendar;
+
 /**
  * @author Joze
  *
@@ -9,7 +11,9 @@ public class Potnik extends Oseba{
 	private String naslov;
 	private String posta;
 	private String postnaStevilka;
+	private Placilo stanjePlacila;
 	
+	public enum Placilo {rezerviral, placal}
 	
 	/**
 	 * 
@@ -22,8 +26,9 @@ public class Potnik extends Oseba{
 		postnaStevilka = new String();				
 	}
 	
-	public Potnik(String kontaktnaStevilka, String naslov, String posta, String postnaStevilka)
+	public Potnik(String ime, String priimek, String eposta, GregorianCalendar rojDatum, String kontaktnaStevilka, String naslov, String posta, String postnaStevilka)
 	{
+		super(ime, priimek, eposta, rojDatum);
 		this.kontaktnaStevilka = kontaktnaStevilka;
 		this.naslov = naslov;
 		this.posta = posta;
@@ -55,12 +60,21 @@ public class Potnik extends Oseba{
 		this.postnaStevilka = postnaStevilka;
 	}
 	
+	public Placilo getStanjePlacila() {
+		return stanjePlacila;
+	}
+	
+	public void setStanjePlacila(Placilo stanjePlacila) {
+		this.stanjePlacila = stanjePlacila;
+	}
+	
 	public String toString() {
 		String str = super.toString();
 		str = str + "\n Kontakt: "+ kontaktnaStevilka + "\n";
 		str = str + "Naslov: "+ naslov + "\n";		
 		str = str + "Postna st.: "+ postnaStevilka + "\n";
 		str = str + "Posta: "+ posta + "\n";
+		str = str + "Stanje placila" + getStanjePlacila() + "\n";
 		
 		return str;
 	}

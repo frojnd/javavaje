@@ -16,8 +16,12 @@ import si.unimb.ruk.prijatelj.logika.oddihi.Krizarjenje;
 import si.unimb.ruk.prijatelj.logika.oddihi.Oddih;
 import si.unimb.ruk.prijatelj.logika.oddihi.Paket;
 import si.unimb.ruk.prijatelj.logika.oddihi.Pocitnice;
+import si.unimb.ruk.prijatelj.logika.oddihi.Pocitnice.Ponudba;
+import si.unimb.ruk.prijatelj.logika.osebe.Potnik;
+import si.unimb.ruk.prijatelj.logika.osebe.Potnik.Placilo;
 import si.unimb.ruk.prijatelj.logika.osebe.Vodic;
 import si.unimb.ruk.prijatelj.logika.osebe.Vodic.Jezik;
+import si.unimb.ruk.prijatelj.logika.oddihi.Pocitnice.Prevoz;
 
 /**
  * @author Joze
@@ -49,7 +53,8 @@ public class Zagonski {
 					System.out.println("1: vnos podatkov o krizarjenjih");
 					System.out.println("2: vnos podatkov o pocitnicah");
 					System.out.println("3: izpis podatkov");
-					System.out.println("4: prejsni menu");
+					System.out.println("4: agencija");
+					System.out.println("5: prejsni menu");
 					System.out.println("-------------------------------");
 					
 					y=sc.nextInt();
@@ -281,7 +286,7 @@ public class Zagonski {
 						vodicK.setGovori(seznamJezikovK);
 						
 						// napolnemo podatke o paketKih
-						System.out.println("-----Podati o paketKu-----");
+						System.out.println("-----Podati o paketu-----");
 						System.out.println("Oddih (" + tmpK + ")\n Vnesi st prostih mest: ");
 						int prostaMestaK = scan1.nextInt();
 						
@@ -310,6 +315,7 @@ public class Zagonski {
 						Paket paketK = new Paket(cenaK, datumZacetkaK, datumKoncaK, prostaMestaK);
 						seznamPaketovK.add(paketK);
 						
+						/*
 						System.out.println("Izracunaj ceno za X potnikov: ");
 						int stPotnikovK = scan1.nextInt();
 						System.out.println("Cena za "+stPotnikovK+" potnikov = "+paketK.izracunajCeno(stPotnikovK));
@@ -323,6 +329,8 @@ public class Zagonski {
 						krizarjenje.setVodic(vodicK);
 						krizarjenje.setDestinacija(ciljK);
 						oddihi.add(krizarjenje);
+						*/
+						
 						
 						break;
 						
@@ -342,12 +350,33 @@ public class Zagonski {
 						int stZvezdic = scanP.nextInt();
 						pocitnice.setStZvezdic(stZvezdic);
 						
+						System.out.println("Prevoz");
+						System.out.println("0: letalski");
+						System.out.println("1: avtobusni");
+						System.out.println("2: vlak");
+						System.out.println("3: lastni");
+
+						int prevozP = scanP.nextInt();
+						if (prevozP == 0) { pocitnice.setPrevoz(Prevoz.letalski); }
+						else if (prevozP == 1) { pocitnice.setPrevoz(Prevoz.avtobusni); } 
+						else if (prevozP == 2) { pocitnice.setPrevoz(Prevoz.vlak); } 
+						else if (prevozP == 3) { pocitnice.setPrevoz(Prevoz.lastni); } 
+						
+						System.out.println("Ponudba");
+						System.out.println("0: nocitev");
+						System.out.println("1: pol_penzion");
+						System.out.println("2: polni_penzion");
+						int ponudbaP = scanP.nextInt();
+						if (ponudbaP == 0) { pocitnice.setPonudba(Ponudba.nocitev); }
+						else if (ponudbaP == 1) { pocitnice.setPonudba(Ponudba.pol_penzion); }
+						else if (ponudbaP == 2) { pocitnice.setPonudba(Ponudba.polni_penzion); }
+						
 						// eat away
 						scanP.nextLine();
 						
 						// napolnemo podatke o vodicih
 						// najprej napolnemo preko razreda Oseba
-System.out.println("-----Podati o vodicPu-----");
+						System.out.println("-----Podati o vodicu-----");
 						
 						System.out.println("Vnesi ime: ");
 						String imeVodicaPocitnice = scanP.nextLine();
@@ -419,7 +448,7 @@ System.out.println("-----Podati o vodicPu-----");
 						vodicP.setGovori(seznamJezikovP);
 						
 						// napolnemo podatke o paketPih
-						System.out.println("-----Podati o paketPu-----");
+						System.out.println("-----Podati o paketu-----");
 						System.out.println("Oddih (" + tmpP + ")\n Vnesi st prostih mest: ");
 						int prostaMestaP = scanP.nextInt();
 						
@@ -448,6 +477,7 @@ System.out.println("-----Podati o vodicPu-----");
 						Paket paketP = new Paket(cenaP, datumZacetkaP, datumKoncaP, prostaMestaP);
 						seznamPaketovP.add(paketP);
 						
+						/*
 						System.out.println("Izracunaj ceno za X potnikov: ");
 						int stPotnikovP = scanP.nextInt();
 						System.out.println("Cena za "+stPotnikovP+" potnikov = "+paketP.izracunajCeno(stPotnikovP));
@@ -456,6 +486,60 @@ System.out.println("-----Podati o vodicPu-----");
 						int stOtrokP = scanP.nextInt();
 						int stOdraslihP = scanP.nextInt();
 						System.out.println("Cena za "+stOtrokP+" otrok in "+stOdraslihP+" odraslih = "+paketP.izracunajCeno(stOdraslihP, stOtrokP));
+						 **/
+						
+						System.out.println("-----podatki o potnikih-----");
+						/*
+						System.out.println("Koliko potnikov zelite vnesti?");
+						int stPotnikovP = scanP.nextInt();
+						*/
+						List<Potnik> listPotnikovP = new ArrayList<Potnik>();
+						
+						Potnik potnikP = new Potnik();
+						System.out.println("Vnesi ime: ");
+						String imePotnikaP = scanP.nextLine();
+						potnikP.setIme(imePotnikaP);
+						
+						System.out.println("Vnesi priimek: ");
+						String priimekPotnikaP = scanP.nextLine();
+						potnikP.setPriimek(priimekPotnikaP);
+						
+						System.out.println("Vnesi e-posto: ");
+						String epostaPotnikaP = scanP.nextLine();
+						potnikP.setEposta(epostaPotnikaP);
+						
+						System.out.println("Vnesi rojstni datum (Leto, Mesec, Dan)");
+						int rojDanLPotnikaPocitnice = scanP.nextInt();
+						int rojDanMPotnikaPocitnice= scanP.nextInt();
+						int rojDanDPotnikaPocitnice= scanP.nextInt();
+						GregorianCalendar rojDanPotnikaPocitnice = new GregorianCalendar(rojDanLPotnikaPocitnice, rojDanMPotnikaPocitnice, rojDanDPotnikaPocitnice);
+						potnikP.setRojstniDatum(rojDanPotnikaPocitnice);
+						
+						scanP.nextLine(); // eat away
+						System.out.println("Vnesi kontaktno stevilko: ");
+						String kontaktnaPotnikP = scanP.nextLine();
+						potnikP.setKontaktnaStevilka(kontaktnaPotnikP);
+						
+						System.out.println("Vnesi posto: ");
+						String postaPotnikP = scanP.nextLine();
+						potnikP.setPosta(postaPotnikP);
+						
+						System.out.println("Vnesi postno stevilko: ");
+						String postnaPotnikP = scanP.nextLine();
+						potnikP.setPostnaStevilka(postnaPotnikP);
+						
+						System.out.println("Stanje placila");
+						System.out.println("0: rezerviral");
+						System.out.println("1: placal");
+						int stanjePlacilaP = scanP.nextInt();
+						if (stanjePlacilaP == 0) { potnikP.setStanjePlacila(Placilo.placal); }
+						else if (stanjePlacilaP == 1) { potnikP.setStanjePlacila(Placilo.placal); }
+						
+						listPotnikovP.add(potnikP);
+						/*
+						 * TO DO
+						 */
+						
 						
 						pocitnice.setPonudbaPaketov(seznamPaketovP);
 						pocitnice.setVodic(vodicP);
@@ -470,9 +554,14 @@ System.out.println("-----Podati o vodicPu-----");
 							System.out.println(oddihi.get(i).toString());
 						}
 						break;
+						
+					case 4:
+						/* 
+						 * to do AGENCIJA
+						 */
 					}
 				}
-				while(y!=4);
+				while(y!=5);
 				
 				break;
 			case 1:

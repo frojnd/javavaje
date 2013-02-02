@@ -13,7 +13,7 @@ public class Pocitnice extends Oddih{
 	private Ponudba ponudba;
 	
 	public enum Prevoz{letalski, avtobusni, vlak, lastni}
-	public enum Ponudba{nocitev, pol_penzion,polni_penzion}
+	public enum Ponudba{nocitev, pol_penzion ,polni_penzion}
 	
 	public Pocitnice() {
 	
@@ -48,14 +48,31 @@ public class Pocitnice extends Oddih{
 		this.ponudba = ponudba;
 	}
 	
+	
 	public String toString() {
 		String str = new String();
 		str = super.toString();
 		
-		str += "\nNaziv hotela: " + getNazivHotela() ;
-		str += "\nStevilo zvezdic: " + getStZvezdic() + "\n";
+		str += "\nNaziv hotela: " + getNazivHotela();
+		str += "\nStevilo zvezdic: " + getStZvezdic();
+		str += "\nPrevoz: " + getPrevoz();
+		str += "\nPonudba: " + getPonudba();
 		
 		return str;
 	}
 	
+	public String vrniPonudbo() {
+		String str = new String();
+		
+		str = "\nVrniPonudbo(): ";
+		str += "\nNaziv oddiha: " + naziv;
+		str += "\nDestinacija: " + destinacija;
+		str += "\nVodic: " + vodic;
+		str += "\nIzbrani paket iz ponudbe paketov: " + ponudbaPaketov;
+		str += "\nOpis ponudbe je sledec: " + opisPonudbe;
+		str += "\nNaziv ladjarja je: " + prevoz;
+		str += "\nMesto odhoda je: " + ponudba;
+		
+		return str;
+	}
 }
