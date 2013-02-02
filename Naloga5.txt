@@ -1,0 +1,21 @@
+a) Pripravite grafični uporabniške vmesnik namenjen upravljanju turistične agencije. Uporabniški vmesnik vaša aplikacije naj bo implementiran s pomočjo knjižnice javax.swing. Podprite naslednje funkcionalnosti:
+vnos, pregled in urejanje potovanj, izletov ter križarjenj,
+vnos, pregled in urejanje vodičev,
+prodajo oz. rezervacijo aranžmajev,
+pregled in statistika poslovanja agencije.
+
+Pri tem uporabite vsaj 3 različne privzete upravljalce izgleda (LayoutManager-je), od tega obvezno preizkusite CardLayout. Uporabniški vmesnik naj bo enoten (vsi pogledi se naj prikazujejo znotraj enega okna).
+
+V aplikaciji si izberite vsaj 3 poglede, ki jih implementirate brez pomoči orodja za vizualno programiranje uporabniških vmesnikov. Izbran pogledi naj vsebujejo vsaj 12 gradnikov. Pri ostalih komponentah uporabniškega vmesnika si lahko pomagate z vizualnimi orodji, ki jih v ta namen ponujajo razvojna orodja.
+
+Nastale razrede umestite v paket si.unimb.ruk.vaš_priimek.ui.
+
+b) Usposobite v prejšnji točki pripravljen uporabniški vmesnik. Pri odzivanju na dogodke uporabite naslednje tipe razredov:
+zunanji razred,
+notranji razred,
+anonimni notranji razred.
+
+Pri implementaciji uprabniškega vmesnika lahko po presoji nadgradite obstoječe razrede ter jim dodate potrebne manjkajoče metode.
+
+
+Cilji. Po nalogi morate obvladati gradnjo uporabniških vmesnikov, odzivanje na dogodke iz uporabnikškega vmesnika ter različne tipe razredov: anonimni notranji razred, poseben razred z odzivi na dogodke, odzivanje na dogodke v razredu (hkrati uporabniški vmesnik).

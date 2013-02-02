@@ -1,0 +1,13 @@
+a) Namesto uporabe tabel (oz. polj) za vodenje zbirk objektov (vodiči, potovanja, križarjenja) uporabite ustrezne kolekcije, ki jih ponuja paket java.util (Vector, ArrayList, Set, Map). Kolekcije naj bodo parametriziranega tipa.
+
+b)  Pri prikazu podatkov na uporabniškem vmesniku poskrbite, da bodo le-ti urejeni po abecednem vrstnem redu (upoštevajte tudi šumnike).
+
+c)  Poskrbite za trajno hranjenje oddihov v datoteko z uporabo mehanizma serializacije objektov, pri tem pa poskrbite, da se bodo podatki pred zapisom v datoteko kompresirali.
+
+Pri zagonu vaše aplikacije poskrbite za obnovitev podatkov o oddihih iz datoteke. 
+
+
+d)  pomembne dogodke, ki se zgodijo v vaši aplikaciji, beležite v tekstovno datoteko.
+
+
+Cilji. Po nalogi morate obvladati delo s kolekcijami objektov, uporabo mehanizmov sortiranja, delo z datotekami, serializacijoin generike v kolekcijah.

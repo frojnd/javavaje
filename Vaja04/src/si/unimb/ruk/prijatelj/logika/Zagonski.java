@@ -78,7 +78,7 @@ public class Zagonski {
 				String ePostaV = scan.nextLine();
 				vodic.setEposta(ePostaV);
 				
-				System.out.println("Vnesi rojdni datum (Leto, Mesec, Dan)");
+				System.out.println("Vnesi rojstni datum (Leto, Mesec, Dan)");
 				int rojDanLV = scan.nextInt();
 				int rojDanMV = scan.nextInt();
 				int rojDanDV = scan.nextInt();
@@ -180,7 +180,7 @@ public class Zagonski {
 					System.out.print("Vnesi eposto: ");
 					String epostaPotnika = scan.nextLine();
 					
-					System.out.println("Vnesi rojstni datum: ");
+					System.out.println("Vnesi rojstni datum: (Leto, Mesec, Dan)");
 					int rojDanLP = scan.nextInt();
 					int rojDanMP = scan.nextInt();
 					int rojDanDP = scan.nextInt();
@@ -208,26 +208,22 @@ public class Zagonski {
 					if (stanjePlacilaP == 0) { potnik.setStanjePlacila(Placilo.rezerviral); }
 					else if(stanjePlacilaP == 1) { potnik.setStanjePlacila(Placilo.placal); } 
 					
+					seznamPotnikov.add(potnik);
+					paket.setPrijavljeniPotniki(seznamPotnikov);
+					
 					try {
 						paket.prijaviPotnika(potnik);
 					} catch (PaketZasedenException e) {
 						System.out.println("Ne morete dodati potnikov, zal so mesta ze zasedena.");
 						e.printStackTrace();
 					}
-					seznamPotnikov.add(potnik);
-					paket.setPrijavljeniPotniki(seznamPotnikov);
+					
 				}
 				
 				izlet.setPonudbaPaketov(seznamPaketov);
 				izlet.setVodic(vodic);
 				izlet.setDestinacija(cilj);
 				oddihi.add(izlet);
-				
-				/*
-				for (int i=0; i<seznamPotnikov.size(); i++) {
-					System.out.println(seznamPotnikov.get(i).toString());
-				}
-				*/
 				
 				break;
 				
