@@ -142,12 +142,13 @@ public abstract class Oddih {
         
         
 		str = "Naziv: " + naziv +"\n";
+		str += "\nPodatki o vodicu: \n";
 		str = str + vodic.toString() + "\n";
-		str = str + "Ponudbe: \n";
 		
 		for (int i = 0; i < ponudbaPaketov.size(); i++) {
 			str = str + ponudbaPaketov.get(i).toString();
 		}
+		
 		return str;
 	}
 }

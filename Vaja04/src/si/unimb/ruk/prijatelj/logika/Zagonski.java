@@ -50,15 +50,15 @@ public class Zagonski {
 				Scanner scan = new Scanner(System.in);
 				System.out.println("-----Podatki o izletih-----");
 				
-				System.out.println("Vnesi naziv oddiha: ");
+				System.out.print("Vnesi naziv oddiha: ");
 				String tmp = scan.nextLine();
 				Izlet izlet = new Izlet(tmp);
 				
-				System.out.println("Vnesi uro odhoda: ");
+				System.out.print("Vnesi uro odhoda: ");
 				String uraOdhoda = scan.nextLine();
 				izlet.setUraOdhoda(uraOdhoda);
 				
-				System.out.println("Vnesi zbirno mesto: ");
+				System.out.print("Vnesi zbirno mesto: ");
 				String zbirnoMesto = scan.nextLine();
 				izlet.setZbirnoMesto(zbirnoMesto);
 				
@@ -66,15 +66,15 @@ public class Zagonski {
 				// najprej napolnimo preko razreda Oseba
 				System.out.println("-----Podati o vodicu-----");
 				
-				System.out.println("Vnesi ime: ");
+				System.out.print("Vnesi ime: ");
 				String imeV = scan.nextLine();
 				
-				System.out.println("Vnesi priimek: ");
+				System.out.print("Vnesi priimek: ");
 				String priimekV = scan.nextLine();
 				
 				Vodic vodic = new Vodic(imeV, priimekV);
 				
-				System.out.println("Vnesi e-posto: ");
+				System.out.print("Vnesi e-posto: ");
 				String ePostaV = scan.nextLine();
 				vodic.setEposta(ePostaV);
 				
@@ -82,14 +82,14 @@ public class Zagonski {
 				int rojDanLV = scan.nextInt();
 				int rojDanMV = scan.nextInt();
 				int rojDanDV = scan.nextInt();
-				GregorianCalendar rojDanV = new GregorianCalendar(rojDanLV, rojDanMV, rojDanDV);
+				GregorianCalendar rojDanV = new GregorianCalendar(rojDanLV, rojDanMV-1, rojDanDV);
 				vodic.setRojstniDatum(rojDanV);
 				
 				// nato napolnemo direktno iz razreda Vodic
 				Boolean imaNimaLicenco;
 				
 				scan.nextLine(); // eat away :P
-				System.out.println("Ali ima licenco gorskega vodnika (da / ne)");
+				System.out.print("Ali ima licenco gorskega vodnika (da / ne): ");
 				String licenca = scan.nextLine();
 				
 				if (licenca.equals("da")) {
@@ -137,32 +137,33 @@ public class Zagonski {
 				
 				// napolnemo podatke o paketih
 				System.out.println("-----Podati o paketu-----");
-				System.out.println("Oddih (" + tmp + ")\n Vnesi st prostih mest: ");
+				System.out.print("Oddih (" + tmp + ")\n Vnesi st prostih mest: ");
 				int prostaMesta = scan.nextInt();
 				
-				System.out.println("Vnesi ceno: ");
+				System.out.print("Vnesi ceno: ");
 				double cena = scan.nextInt();
 				
 				System.out.println("Vnesi datum zacetka oddiha - leto, mesec, dan");
 				int letoZ = scan.nextInt();
 				int mesecZ = scan.nextInt()-1;
 				int danZ = scan.nextInt();
-				GregorianCalendar datumZacetka = new GregorianCalendar(letoZ,mesecZ, danZ);
+				GregorianCalendar datumZacetka = new GregorianCalendar(letoZ, mesecZ-1, danZ);
 			
 				System.out.println("Vnesi koncni datum oddiha - leto, mesec, dan");
 				int letoK = scan.nextInt();
 				int mesecK = scan.nextInt()-1;
 				int danK = scan.nextInt();
-				GregorianCalendar datumKonca = new GregorianCalendar(letoK,mesecK, danK);
+				GregorianCalendar datumKonca = new GregorianCalendar(letoK, mesecK-1, danK);
 				
-				scan.nextLine(); // eat away :P
-				System.out.println("Vnesi naziv destinacije: ");
+				scan.nextLine(); // eat away new line
+				System.out.print("Vnesi naziv destinacije: ");
 				String nazivD = scan.nextLine();
 				
 				Destinacija cilj = new Destinacija(nazivD);
 				
 				List<Paket> seznamPaketov = new ArrayList<Paket>();
 				Paket paket = new Paket(cena, datumZacetka, datumKonca, prostaMesta);
+				seznamPaketov.add(paket);
 				
 				List<Potnik> seznamPotnikov = new ArrayList<Potnik>();
 				System.out.print("Koliko potnikov zelite vnesti: ");
@@ -214,12 +215,19 @@ public class Zagonski {
 						e.printStackTrace();
 					}
 					seznamPotnikov.add(potnik);
+					paket.setPrijavljeniPotniki(seznamPotnikov);
 				}
 				
 				izlet.setPonudbaPaketov(seznamPaketov);
 				izlet.setVodic(vodic);
 				izlet.setDestinacija(cilj);
 				oddihi.add(izlet);
+				
+				/*
+				for (int i=0; i<seznamPotnikov.size(); i++) {
+					System.out.println(seznamPotnikov.get(i).toString());
+				}
+				*/
 				
 				break;
 				

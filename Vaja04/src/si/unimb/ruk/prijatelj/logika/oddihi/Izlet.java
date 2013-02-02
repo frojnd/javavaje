@@ -4,6 +4,8 @@
  */
 package si.unimb.ruk.prijatelj.logika.oddihi;
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class Izlet extends Oddih{
 
@@ -57,5 +59,13 @@ public class Izlet extends Oddih{
 		str += "\nMesto odhoda je: " + uraOdhoda;
 		
 		return str;
+	}
+	
+	public List<Paket> getPonudbaPaketov(){
+		return super.getPonudbaPaketov();
+	}
+	
+	public void setPonudbaPaketov(List<Paket> ponudbaPaketov){
+		super.setPonudbaPaketov(ponudbaPaketov);
 	}
 }

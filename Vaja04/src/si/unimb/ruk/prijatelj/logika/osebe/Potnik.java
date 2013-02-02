@@ -69,12 +69,13 @@ public class Potnik extends Oseba{
 	}
 	
 	public String toString() {
+		//System.out.print("\n----Podatki o potnikih----\n");
 		String str = super.toString();
-		str = str + "\n Kontakt: "+ kontaktnaStevilka + "\n";
+		str = str + "\nKontakt: "+ kontaktnaStevilka + "\n";
 		str = str + "Naslov: "+ naslov + "\n";		
 		str = str + "Postna st.: "+ postnaStevilka + "\n";
 		str = str + "Posta: "+ posta + "\n";
-		str = str + "Stanje placila" + getStanjePlacila() + "\n";
+		str = str + "Stanje placila: " + getStanjePlacila() + "\n";
 		
 		return str;
 	}

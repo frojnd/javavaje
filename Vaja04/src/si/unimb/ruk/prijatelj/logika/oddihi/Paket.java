@@ -119,12 +119,11 @@ public class Paket extends Oddih{
 		str += "\nCena: " + cena;
 		str += "\nDatum zacetka: " + df.format(datum_zacetka.getTime());
 		str += "\nDatum konca: " + df.format(datum_konca.getTime());
-		str += "\nStevilo prostih mest: " + stevilo_mest;
-		
-		str += "\nSeznamPotnikov: \n";
-		
-		for (int i = 0; i < prijavljeniPotniki.size(); i++) {
-			str = str + prijavljeniPotniki.get(i).toString();
+		str += "\nStevilo prostih mest: " + stevilo_mest + "\n";
+		str += "\n-------Podatki o potnikih---------";
+		for (int i=0; i<prijavljeniPotniki.size(); i++) {
+			str += "\nPotnik na indeksu: " + i + ":\n";
+			str += prijavljeniPotniki.get(i).toString();
 		}
 		
 		return str;
@@ -168,8 +167,15 @@ public class Paket extends Oddih{
 	 * izjema PaketZasedenException se prozi vedno, ko zelimo dodati rezervacijo, 
 	 * povprasevanje ali placilo ter ni vec prostih mest (stRezerviranih+stPlacanih < prostaMesta
 	 */
+	
+	public void test() {
+		System.out.println("St mest: " + stevilo_mest + "\n");
+		System.out.println("Prijavljeni potniki size(): " + prijavljeniPotniki.size() + "\n");
+	}
 
 	public void prijaviPotnika(Potnik potnik) throws PaketZasedenException {
+		System.out.println("St mest: " + stevilo_mest + "\n");
+		System.out.println("Prijavljeni potniki size(): " + prijavljeniPotniki.size() + "\n");
 		if (this.stevilo_mest == prijavljeniPotniki.size())
 		{
 			throw new PaketZasedenException();
