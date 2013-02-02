@@ -89,6 +89,9 @@ public class Destinacija {
 		this.drzava = drzava;
 	}
 	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	public String toString() {
 		String str = new String();
 		str = "Naziv: "+naziv+", lokacija:"+lokacija+", drzava:"+drzava;

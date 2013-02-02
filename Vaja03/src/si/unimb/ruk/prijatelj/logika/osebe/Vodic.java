@@ -2,7 +2,6 @@ package si.unimb.ruk.prijatelj.logika.osebe;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 
 /**
  * @author Joze
@@ -16,31 +15,53 @@ public class Vodic extends Oseba{
 	// nastevni tip za jezike
 	public enum Jezik{Slovensko, Nemsko, Italijansko, Spansko, Anglesko}
 
+	/**
+	 * 
+	 */
 	public Vodic() {
 		licencaGorskegaVodnika = false;
 	}
 	
+	/**
+	 * @param ime
+	 * @param priimek
+	 */
 	public Vodic(String ime, String priimek)
 	{
 		super(ime, priimek);
 	}
 	
+	/**
+	 * @return
+	 */
 	public boolean isLicencaGorskegaVodnika() {
 		return licencaGorskegaVodnika;
 	}
 
+	/**
+	 * @param licencaGorskegaVodnika
+	 */
 	public void setLicencaGorskegaVodnika(boolean licencaGorskegaVodnika) {
 		this.licencaGorskegaVodnika = licencaGorskegaVodnika;
 	}
 
+	/**
+	 * @return
+	 */
 	public List<Jezik> getGovori() {
 		return govori;
 	}
 
+	/**
+	 * @param govori
+	 */
 	public void setGovori(List<Jezik> govori) {
 		this.govori = govori;
 	}
 	
+	/* (non-Javadoc)
+	 * @see si.unimb.ruk.prijatelj.logika.osebe.Oseba#toString()
+	 */
 	public String toString() {
 		String str = new String();
 		str = super.toString();

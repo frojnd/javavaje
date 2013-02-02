@@ -19,7 +19,6 @@ package si.unimb.ruk.prijatelj.logika.oddihi;
  * datum konca oddiha, cena ter število mest
  */
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,27 +30,22 @@ import si.unimb.ruk.prijatelj.logika.osebe.Vodic;
  *
  */
 public abstract class Oddih {
-	private String naziv;
-	private Destinacija destinacija;
-	private Oseba vodic;
-	//private Vector<Paket> ponudbaPaketov;
-	private List<Paket> ponudbaPaketov;
-	private String opisPonudbe;
-	
-	// privzeti konstruktor
+	protected String naziv;
+	protected Destinacija destinacija;
+	protected Oseba vodic;
+	protected List<Paket> ponudbaPaketov;
+	protected String opisPonudbe;
 	
 	/**
 	 * 
 	 */
 	public Oddih() {
-		//this("Morje", "Palma", new GregorianCalendar(2012,5,5), new GregorianCalendar(2012,6,6), 300.4, 4);
 		naziv = "";
 		destinacija = new Destinacija();
 		vodic = new Vodic();
 		ponudbaPaketov = new ArrayList<Paket>();
 	}
 	
-	// konstruktorja razreda Destinacija in Oddih naj prjmeta parameter naziv
 	/**
 	 * @param naziv
 	 */
@@ -59,18 +53,18 @@ public abstract class Oddih {
 		this.naziv = naziv;
 	}
 		
-	// konstruktorja razreda Destinacija in Oddih naj prjmeta parameter naziv
 	/**
 	 * @param naziv
 	 * @param destinacija
 	 * @param vodic
 	 * @param ponudbaPaketov
 	 */
-	public Oddih(String naziv, Destinacija destinacija, Oseba vodic, List<Paket> ponudbaPaketov) {
+	public Oddih(String naziv, Destinacija destinacija, Oseba vodic, List<Paket> ponudbaPaketov, String opisPonudbe) {
 		this(naziv);
 		this.destinacija = destinacija;
 		this.vodic = vodic;
 		this.ponudbaPaketov = ponudbaPaketov;
+		this.opisPonudbe = opisPonudbe;
 	}
 	
 	/**
@@ -131,20 +125,25 @@ public abstract class Oddih {
 		this.ponudbaPaketov = ponudbaPaketov;
 	}
 	
+	public String getOpisPonudbe() {
+		return opisPonudbe;
+	}
+
+	public void setOpisPonudbe(String opisPonudbe) {
+		this.opisPonudbe = opisPonudbe;
+		
+	}
+	
 	public String vrniPonudbo()
 	{
 		return opisPonudbe;
 	}
 	
 	public String toString() {
-		SimpleDateFormat df = new SimpleDateFormat();
-        df.applyPattern("dd/MM/yyyy");
         String str = new String();
-        
         
 		str = "Naziv: " + naziv +"\n";
 		str = str + vodic.toString() + "\n";
-		str = str + "Ponudbe: \n";
 		
 		for (int i = 0; i < ponudbaPaketov.size(); i++) {
 			str = str + ponudbaPaketov.get(i).toString();

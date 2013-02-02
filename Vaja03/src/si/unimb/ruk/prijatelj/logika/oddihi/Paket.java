@@ -1,5 +1,6 @@
 package si.unimb.ruk.prijatelj.logika.oddihi;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 
@@ -92,7 +93,18 @@ public class Paket extends Oddih{
 	 * @see java.lang.Object#toString()
 	 */
 	public String toString(){
-		return "Cena: " + cena + ", Datum zacetka: " + datum_zacetka.get(Calendar.DAY_OF_MONTH)+ "."+ datum_zacetka.get(Calendar.MONTH)+ "." + datum_zacetka.get(Calendar.YEAR) + ", Datum konca: " + datum_konca.get(Calendar.DAY_OF_MONTH)+ "."+ datum_konca.get(Calendar.MONTH)+ "." + datum_konca.get(Calendar.YEAR) + ", Stevilo mest: " + stevilo_mest + "\n";
+		String str = new String();
+		
+		SimpleDateFormat df = new SimpleDateFormat();
+		df.applyPattern("dd/MM/yyyy");
+		
+		str = "\nIzpis podatkov o paketih: ";
+		str += "\nCena: " + cena;
+		str += "\nDatum zacetka: " + df.format(datum_zacetka.getTime());
+		str += "\nDatum konca: " + df.format(datum_konca.getTime());
+		str += "\nStevilo prostih mest: " + stevilo_mest;
+		
+		return str;
 	}
 	
 	/**

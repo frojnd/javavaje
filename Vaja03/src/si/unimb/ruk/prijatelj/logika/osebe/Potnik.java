@@ -22,6 +22,12 @@ public class Potnik extends Oseba{
 		postnaStevilka = new String();				
 	}
 	
+	/**
+	 * @param kontaktnaStevilka
+	 * @param naslov
+	 * @param posta
+	 * @param postnaStevilka
+	 */
 	public Potnik(String kontaktnaStevilka, String naslov, String posta, String postnaStevilka)
 	{
 		this.kontaktnaStevilka = kontaktnaStevilka;
@@ -30,31 +36,65 @@ public class Potnik extends Oseba{
 		this.postnaStevilka = postnaStevilka;		
 	}
 	
+	/**
+	 * @return
+	 */
 	public String getKontaktnaStevilka() {
 		return kontaktnaStevilka;
 	}
+	
+	/**
+	 * @param kontaktnaStevilka
+	 */
 	public void setKontaktnaStevilka(String kontaktnaStevilka) {
 		this.kontaktnaStevilka = kontaktnaStevilka;
 	}
+	
+	/**
+	 * @return
+	 */
 	public String getNaslov() {
 		return naslov;
 	}
+	
+	/**
+	 * @param naslov
+	 */
 	public void setNaslov(String naslov) {
 		this.naslov = naslov;
 	}
+	
+	/**
+	 * @return
+	 */
 	public String getPosta() {
 		return posta;
 	}
+	
+	/**
+	 * @param posta
+	 */
 	public void setPosta(String posta) {
 		this.posta = posta;
 	}
+	
+	/**
+	 * @return
+	 */
 	public String getPostnaStevilka() {
 		return postnaStevilka;
 	}
+	
+	/**
+	 * @param postnaStevilka
+	 */
 	public void setPostnaStevilka(String postnaStevilka) {
 		this.postnaStevilka = postnaStevilka;
 	}
 	
+	/* (non-Javadoc)
+	 * @see si.unimb.ruk.prijatelj.logika.osebe.Oseba#toString()
+	 */
 	public String toString() {
 		String str = super.toString();
 		str = str + "\n Kontakt: "+ kontaktnaStevilka + "\n";

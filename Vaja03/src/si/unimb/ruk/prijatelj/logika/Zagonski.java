@@ -49,7 +49,7 @@ public class Zagonski {
 					System.out.println("1: vnos podatkov o krizarjenjih");
 					System.out.println("2: vnos podatkov o pocitnicah");
 					System.out.println("3: izpis podatkov");
-					System.out.println("4: prejsni menu");
+					System.out.println("4: prejsnji menu");
 					System.out.println("-------------------------------");
 					
 					y=sc.nextInt();
@@ -59,15 +59,15 @@ public class Zagonski {
 						Scanner scan = new Scanner(System.in);
 						System.out.println("-----Podatki o izletih-----");
 						
-						System.out.println("Vnesi naziv oddiha: ");
+						System.out.print("Vnesi naziv oddiha: ");
 						String tmp = scan.nextLine();
 						Izlet izlet = new Izlet(tmp);
 						
-						System.out.println("Vnesi uro odhoda: ");
+						System.out.print("Vnesi uro odhoda: ");
 						String uraOdhoda = scan.nextLine();
 						izlet.setUraOdhoda(uraOdhoda);
 						
-						System.out.println("Vnesi zbirno mesto: ");
+						System.out.print("Vnesi zbirno mesto: ");
 						String zbirnoMesto = scan.nextLine();
 						izlet.setZbirnoMesto(zbirnoMesto);
 						
@@ -75,30 +75,30 @@ public class Zagonski {
 						// najprej napolnimo preko razreda Oseba
 						System.out.println("-----Podati o vodicu-----");
 						
-						System.out.println("Vnesi ime: ");
+						System.out.print("Vnesi ime: ");
 						String imeV = scan.nextLine();
 						
-						System.out.println("Vnesi priimek: ");
+						System.out.print("Vnesi priimek: ");
 						String priimekV = scan.nextLine();
 						
 						Vodic vodic = new Vodic(imeV, priimekV);
 						
-						System.out.println("Vnesi e-posto: ");
+						System.out.print("Vnesi e-posto: ");
 						String ePostaV = scan.nextLine();
 						vodic.setEposta(ePostaV);
 						
-						System.out.println("Vnesi rojdni datum (Leto, Mesec, Dan)");
+						System.out.println("Vnesi rojstni datum (Leto, Mesec, Dan)");
 						int rojDanLV = scan.nextInt();
 						int rojDanMV = scan.nextInt();
 						int rojDanDV = scan.nextInt();
-						GregorianCalendar rojDanV = new GregorianCalendar(rojDanLV, rojDanMV, rojDanDV);
+						GregorianCalendar rojDanV = new GregorianCalendar(rojDanLV, rojDanMV-1, rojDanDV);
 						vodic.setRojstniDatum(rojDanV);
 						
 						// nato napolnemo direktno iz razreda Vodic
 						Boolean imaNimaLicenco;
 						
-						scan.nextLine(); // eat away :P
-						System.out.println("Ali ima licenco gorskega vodnika (da / ne)");
+						scan.nextLine(); // eat away new line
+						System.out.print("Ali ima licenco gorskega vodnika (da / ne): ");
 						String licenca = scan.nextLine();
 						
 						if (licenca.equals("da")) {
@@ -146,26 +146,26 @@ public class Zagonski {
 						
 						// napolnemo podatke o paketih
 						System.out.println("-----Podati o paketu-----");
-						System.out.println("Oddih (" + tmp + ")\n Vnesi st prostih mest: ");
+						System.out.print("Oddih (" + tmp + ")\n Vnesi st prostih mest: ");
 						int prostaMesta = scan.nextInt();
 						
-						System.out.println("Vnesi ceno: ");
+						System.out.print("Vnesi ceno: ");
 						double cena = scan.nextInt();
 						
 						System.out.println("Vnesi datum zacetka oddiha - leto, mesec, dan");
 						int letoZ = scan.nextInt();
-						int mesecZ = scan.nextInt()-1;
+						int mesecZ = scan.nextInt();
 						int danZ = scan.nextInt();
-						GregorianCalendar datumZacetka = new GregorianCalendar(letoZ,mesecZ, danZ);
+						GregorianCalendar datumZacetka = new GregorianCalendar(letoZ, mesecZ-1, danZ);
 					
 						System.out.println("Vnesi koncni datum oddiha - leto, mesec, dan");
 						int letoK = scan.nextInt();
-						int mesecK = scan.nextInt()-1;
+						int mesecK = scan.nextInt();
 						int danK = scan.nextInt();
-						GregorianCalendar datumKonca = new GregorianCalendar(letoK,mesecK, danK);
+						GregorianCalendar datumKonca = new GregorianCalendar(letoK, mesecK-1, danK);
 						
-						scan.nextLine(); // eat away :P
-						System.out.println("Vnesi naziv destinacije: ");
+						scan.nextLine(); // eat away new line
+						System.out.print("Vnesi naziv destinacije: ");
 						String nazivD = scan.nextLine();
 						
 						Destinacija cilj = new Destinacija(nazivD);
@@ -174,19 +174,23 @@ public class Zagonski {
 						Paket paket = new Paket(cena, datumZacetka, datumKonca, prostaMesta);
 						seznamPaketov.add(paket);
 						
-						System.out.println("Izracunaj ceno za X potnikov: ");
+						System.out.print("Izracunaj ceno za X potnikov: ");
 						int stPotnikov = scan.nextInt();
-						System.out.println("Cena za "+stPotnikov+" potnikov = "+paket.izracunajCeno(stPotnikov));
+						System.out.print("Cena za "+stPotnikov+" potnikov = "+paket.izracunajCeno(stPotnikov) + "\n");
 						
 						System.out.println("Izracunaj ceno za X odraslih in Y otrok: ");
 						int stOtrok = scan.nextInt();
 						int stOdraslih = scan.nextInt();
-						System.out.println("Cena za "+stOtrok+" otrok in "+stOdraslih+" odraslih = "+paket.izracunajCeno(stOdraslih, stOtrok));
+						System.out.print("Cena za "+stOtrok+" otrok in "+stOdraslih+" odraslih = "+paket.izracunajCeno(stOdraslih, stOtrok) + "\n");
 						
 						izlet.setPonudbaPaketov(seznamPaketov);
 						izlet.setVodic(vodic);
 						izlet.setDestinacija(cilj);
+						// test metode
+						izlet.vrniPonudbo();
 						oddihi.add(izlet);
+						
+						
 						
 						break;
 						
@@ -194,32 +198,32 @@ public class Zagonski {
 						// napolnemo podatke o krizarjenjih
 						Scanner scan1 = new Scanner(System.in);
 						System.out.println("-----Podatki o krizarjenjih-----");
-						System.out.println("Vnesi naziv oddiha: ");
+						System.out.print("Vnesi naziv oddiha: ");
 						String tmpK = scan1.nextLine();
 						Krizarjenje krizarjenje = new Krizarjenje(tmpK);
 						
 						
-						System.out.println("Naziv ladjarja: ");
+						System.out.print("Naziv ladjarja: ");
 						String nazivLadjarja = scan1.nextLine();
 						krizarjenje.setNazivLadjarja(nazivLadjarja);
 						
-						System.out.println("Mesto odhoda: ");
+						System.out.print("Mesto odhoda: ");
 						String mestoOdhoda = scan1.nextLine();
 						krizarjenje.setMestoOdhoda(mestoOdhoda);
 						
 						// napolnimo podatke o vodicih
 						// najprej napolnimo preko razreda Oseba
-						System.out.println("-----Podati o vodicKu-----");
+						System.out.println("-----Podati o vodicu-----");
 						
-						System.out.println("Vnesi ime: ");
+						System.out.print("Vnesi ime: ");
 						String imeVodica = scan1.nextLine();
 						
-						System.out.println("Vnesi priimek: ");
+						System.out.print("Vnesi priimek: ");
 						String priimekVodica = scan1.nextLine();
 						
 						Vodic vodicK = new Vodic(imeVodica, priimekVodica);
 						
-						System.out.println("Vnesi e-posto: ");
+						System.out.print("Vnesi e-posto: ");
 						String ePostaVodica = scan1.nextLine();
 						vodicK.setEposta(ePostaVodica);
 						
@@ -227,14 +231,14 @@ public class Zagonski {
 						int rojDanLVodica = scan1.nextInt();
 						int rojDanMVodica= scan1.nextInt();
 						int rojDanDVodica= scan1.nextInt();
-						GregorianCalendar rojDanVodica = new GregorianCalendar(rojDanLVodica, rojDanMVodica, rojDanDVodica);
+						GregorianCalendar rojDanVodica = new GregorianCalendar(rojDanLVodica, rojDanMVodica-1, rojDanDVodica);
 						vodicK.setRojstniDatum(rojDanVodica);
 						
 						// nato napolnemo direktno iz razreda Vodic
 						Boolean imaNimaLicencoK;
 						
 						scan1.nextLine(); // eat away :P
-						System.out.println("Ali ima licenco gorskega vodnika (da / ne)");
+						System.out.print("Ali ima licenco gorskega vodnika (da / ne)");
 						String licencaK = scan1.nextLine();
 						
 						if (licencaK.equals("da")) {
@@ -245,7 +249,7 @@ public class Zagonski {
 						}
 						vodicK.setLicencaGorskegaVodnika(imaNimaLicencoK);
 						
-						System.out.println("Katere jezike govori vodicK: ");
+						System.out.println("Katere jezike govori vodic: ");
 						System.out.println("1 Anglesko");
 						System.out.println("2 Nemsko");
 						System.out.println("3 Spansko");
@@ -281,26 +285,26 @@ public class Zagonski {
 						vodicK.setGovori(seznamJezikovK);
 						
 						// napolnemo podatke o paketKih
-						System.out.println("-----Podati o paketKu-----");
-						System.out.println("Oddih (" + tmpK + ")\n Vnesi st prostih mest: ");
+						System.out.println("-----Podati o paketu-----");
+						System.out.print("Oddih (" + tmpK + ")\n Vnesi st prostih mest: ");
 						int prostaMestaK = scan1.nextInt();
 						
-						System.out.println("Vnesi ceno: ");
+						System.out.print("Vnesi ceno: ");
 						double cenaK = scan1.nextInt();
 						
 						System.out.println("Vnesi datum zacetka oddiha - leto, mesec, dan");
 						int letoZK = scan1.nextInt();
-						int mesecZK = scan1.nextInt()-1;
+						int mesecZK = scan1.nextInt();
 						int danZK = scan1.nextInt();
-						GregorianCalendar datumZacetkaK = new GregorianCalendar(letoZK,mesecZK, danZK);
+						GregorianCalendar datumZacetkaK = new GregorianCalendar(letoZK, mesecZK-1, danZK);
 					
 						System.out.println("Vnesi koncni datum oddiha - leto, mesec, dan");
 						int letoKK = scan1.nextInt();
-						int mesecKK = scan1.nextInt()-1;
+						int mesecKK = scan1.nextInt();
 						int danKK = scan1.nextInt();
-						GregorianCalendar datumKoncaK = new GregorianCalendar(letoKK,mesecKK, danKK);
+						GregorianCalendar datumKoncaK = new GregorianCalendar(letoKK, mesecKK-1, danKK);
 						
-						scan1.nextLine(); // eat away :P
+						scan1.nextLine(); // eat away new line
 						System.out.println("Vnesi naziv destinacije: ");
 						String nazivDK = scan1.nextLine();
 						
@@ -310,7 +314,7 @@ public class Zagonski {
 						Paket paketK = new Paket(cenaK, datumZacetkaK, datumKoncaK, prostaMestaK);
 						seznamPaketovK.add(paketK);
 						
-						System.out.println("Izracunaj ceno za X potnikov: ");
+						System.out.print("Izracunaj ceno za X potnikov: ");
 						int stPotnikovK = scan1.nextInt();
 						System.out.println("Cena za "+stPotnikovK+" potnikov = "+paketK.izracunajCeno(stPotnikovK));
 						
@@ -330,34 +334,33 @@ public class Zagonski {
 						// napolnimo podatke o pocitnicah
 						Scanner scanP = new Scanner(System.in);
 						System.out.println("-----Podatki o pocitnicah-----");
-						System.out.println("Vnesite naziv oddiha");
+						System.out.print("Vnesite naziv oddiha: ");
 						String tmpP = scanP.nextLine();
 						Pocitnice pocitnice = new Pocitnice(tmpP);
 						
-						System.out.println("Naziv hotela: ");
+						System.out.print("Naziv hotela: ");
 						String nazivHotela = scanP.nextLine();
 						pocitnice.setNazivHotela(nazivHotela);
 						
-						System.out.println("Stevilo zvezdic: ");
+						System.out.print("Stevilo zvezdic: ");
 						int stZvezdic = scanP.nextInt();
 						pocitnice.setStZvezdic(stZvezdic);
 						
-						// eat away
+						// eat away new line
 						scanP.nextLine();
 						
 						// napolnemo podatke o vodicih
 						// najprej napolnemo preko razreda Oseba
-System.out.println("-----Podati o vodicPu-----");
-						
-						System.out.println("Vnesi ime: ");
+						System.out.println("-----Podati o vodicu-----");
+						System.out.print("Vnesi ime: ");
 						String imeVodicaPocitnice = scanP.nextLine();
 						
-						System.out.println("Vnesi priimek: ");
+						System.out.print("Vnesi priimek: ");
 						String priimekVodicaPocitnice = scanP.nextLine();
 						
 						Vodic vodicP = new Vodic(imeVodicaPocitnice, priimekVodicaPocitnice);
 						
-						System.out.println("Vnesi e-posto: ");
+						System.out.print("Vnesi e-posto: ");
 						String ePostaVodicaPocitnice = scanP.nextLine();
 						vodicP.setEposta(ePostaVodicaPocitnice);
 						
@@ -365,14 +368,14 @@ System.out.println("-----Podati o vodicPu-----");
 						int rojDanLVodicaPocitnice = scanP.nextInt();
 						int rojDanMVodicaPocitnice= scanP.nextInt();
 						int rojDanDVodicaPocitnice= scanP.nextInt();
-						GregorianCalendar rojDanVodicaPocitnice = new GregorianCalendar(rojDanLVodicaPocitnice, rojDanMVodicaPocitnice, rojDanDVodicaPocitnice);
+						GregorianCalendar rojDanVodicaPocitnice = new GregorianCalendar(rojDanLVodicaPocitnice, rojDanMVodicaPocitnice-1, rojDanDVodicaPocitnice);
 						vodicP.setRojstniDatum(rojDanVodicaPocitnice);
 						
 						// nato napolnemo direktno iz razreda Vodic
 						Boolean imaNimaLicencoP;
 						
-						scanP.nextLine(); // eat away :P
-						System.out.println("Ali ima licenco gorskega vodnika (da / ne)");
+						scanP.nextLine(); // eat away new line
+						System.out.print("Ali ima licenco gorskega vodnika (da / ne)");
 						String licencaP = scanP.nextLine();
 						
 						if (licencaP.equals("da")) {
@@ -383,7 +386,7 @@ System.out.println("-----Podati o vodicPu-----");
 						}
 						vodicP.setLicencaGorskegaVodnika(imaNimaLicencoP);
 						
-						System.out.println("Katere jezike govori vodicP: ");
+						System.out.println("Katere jezike govori vodic: ");
 						System.out.println("1 Anglesko");
 						System.out.println("2 Nemsko");
 						System.out.println("3 Spansko");
@@ -419,26 +422,26 @@ System.out.println("-----Podati o vodicPu-----");
 						vodicP.setGovori(seznamJezikovP);
 						
 						// napolnemo podatke o paketPih
-						System.out.println("-----Podati o paketPu-----");
-						System.out.println("Oddih (" + tmpP + ")\n Vnesi st prostih mest: ");
+						System.out.println("-----Podati o paketu-----");
+						System.out.print("Oddih (" + tmpP + ")\n Vnesi st prostih mest: ");
 						int prostaMestaP = scanP.nextInt();
 						
-						System.out.println("Vnesi ceno: ");
+						System.out.print("Vnesi ceno: ");
 						double cenaP = scanP.nextInt();
 						
 						System.out.println("Vnesi datum zacetka oddiha - leto, mesec, dan");
 						int letoZP = scanP.nextInt();
 						int mesecZP = scanP.nextInt()-1;
 						int danZP = scanP.nextInt();
-						GregorianCalendar datumZacetkaP = new GregorianCalendar(letoZP,mesecZP, danZP);
+						GregorianCalendar datumZacetkaP = new GregorianCalendar(letoZP, mesecZP-1, danZP);
 					
 						System.out.println("Vnesi koncni datum oddiha - leto, mesec, dan");
 						int letoKP = scanP.nextInt();
 						int mesecKP = scanP.nextInt()-1;
 						int danKP = scanP.nextInt();
-						GregorianCalendar datumKoncaP = new GregorianCalendar(letoKP,mesecKP, danKP);
+						GregorianCalendar datumKoncaP = new GregorianCalendar(letoKP, mesecKP-1, danKP);
 						
-						scanP.nextLine(); // eat away :P
+						scanP.nextLine(); // eat away new line
 						System.out.println("Vnesi naziv destinacije: ");
 						String nazivDP = scanP.nextLine();
 						
@@ -448,7 +451,7 @@ System.out.println("-----Podati o vodicPu-----");
 						Paket paketP = new Paket(cenaP, datumZacetkaP, datumKoncaP, prostaMestaP);
 						seznamPaketovP.add(paketP);
 						
-						System.out.println("Izracunaj ceno za X potnikov: ");
+						System.out.print("Izracunaj ceno za X potnikov: ");
 						int stPotnikovP = scanP.nextInt();
 						System.out.println("Cena za "+stPotnikovP+" potnikov = "+paketP.izracunajCeno(stPotnikovP));
 						
