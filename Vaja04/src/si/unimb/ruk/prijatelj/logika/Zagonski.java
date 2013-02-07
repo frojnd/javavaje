@@ -85,6 +85,8 @@ public class Zagonski {
 				GregorianCalendar rojDanV = new GregorianCalendar(rojDanLV, rojDanMV-1, rojDanDV);
 				vodic.setRojstniDatum(rojDanV);
 				
+				System.out.println(vodic.getRojstniDatum());
+				
 				// nato napolnemo direktno iz razreda Vodic
 				Boolean imaNimaLicenco;
 				
