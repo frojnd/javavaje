@@ -51,10 +51,10 @@ public class Pocitnice extends Oddih{
 	
 	public String toString() {
 		String str = new String();
-		str = super.toString();
+		//str = super.toString();
 		
-		str += "\nNaziv hotela: " + getNazivHotela();
-		str += "\nStevilo zvezdic: " + getStZvezdic();
+		str += "Naziv hotela: " + getNazivHotela();
+		str += "\nŠtevilo zvezdic: " + getStZvezdic();
 		str += "\nPrevoz: " + getPrevoz();
 		str += "\nPonudba: " + getPonudba();
 		

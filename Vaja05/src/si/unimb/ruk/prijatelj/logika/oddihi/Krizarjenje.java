@@ -33,10 +33,10 @@ public class Krizarjenje extends Oddih{
 	
 	public String toString() {
 		String str = new String();
-		str = super.toString();
+		//str = super.toString();
 		
-		str += "\nNaziv ladjarja: " + getNazivLadjarja() + "\n";
-		str += "\nMesto odhoda: " + getMestoOdhoda() + "\n";
+		str += "Naziv ladjarja: " + getNazivLadjarja() + "\n";
+		str += "Mesto odhoda: " + getMestoOdhoda() + "\n";
 		
 		return str;
 	}

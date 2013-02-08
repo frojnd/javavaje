@@ -38,9 +38,9 @@ public class Izlet extends Oddih{
 	
 	public String toString() {
 		String str = new String();
-		str = super.toString();
+		//str = super.toString();
 		
-		str += "\nZbirno mesto: " + getZbirnoMesto();
+		str += "Zbirno mesto: " + getZbirnoMesto();
 		str += "\nUra odhoda: " + getUraOdhoda() + "\n";
 		
 		return str;

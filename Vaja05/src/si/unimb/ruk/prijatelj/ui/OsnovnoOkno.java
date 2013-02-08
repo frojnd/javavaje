@@ -4,10 +4,14 @@ import java.awt.Dimension;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+import javax.swing.JTextField;
 
 public class OsnovnoOkno extends JFrame {
+	
 	
 	public OsnovnoOkno() {
 		
@@ -28,12 +32,11 @@ public class OsnovnoOkno extends JFrame {
 		JPanel zavihekPocitnice = new OknoPocitnice();
 		cards.add("Počitnice", zavihekPocitnice);
 		
-		JPanel zavihekAranzmaji = new JPanel();		
-		zavihekAranzmaji.add(new JButton("Aranžmaji"));
+		JPanel zavihekAranzmaji = new OknoAranzmaji();		
 		cards.add("Aranžmaji",zavihekAranzmaji);
 		
-		JPanel zavihekStatistika = new JPanel();		
-		zavihekStatistika.add(new JButton("statistika"));
+		//JPanel zavihekStatistika = new JPanel();		
+		JPanel zavihekStatistika = new OknoStatistika();
 		cards.add("Statistika",zavihekStatistika);
 		
 		this.add(cards);

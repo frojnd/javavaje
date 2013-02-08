@@ -22,6 +22,10 @@ public class Paket extends Oddih{
 
 	private List<Potnik> prijavljeniPotniki;
 	private List<Vodic> seznamVodicev;
+	private List<Izlet> seznamIzletov;
+
+	private List<Krizarjenje> seznamKrizarjenj;
+	private List<Pocitnice> seznamPocitnic;
 	
 	private final int minPopustPotnikov = 10;
 	private final int popustVelikaSkupina = 12;
@@ -65,6 +69,29 @@ public class Paket extends Oddih{
 	}
 
 
+	public List<Izlet> getSeznamIzletov() {
+		return seznamIzletov;
+	}
+
+	public void setSeznamIzletov(List<Izlet> seznamIzletov) {
+		this.seznamIzletov = seznamIzletov;
+	}
+
+	public List<Krizarjenje> getSeznamKrizarjenj() {
+		return seznamKrizarjenj;
+	}
+
+	public void setSeznamKrizarjenj(List<Krizarjenje> seznamKrizarjenj) {
+		this.seznamKrizarjenj = seznamKrizarjenj;
+	}
+
+	public List<Pocitnice> getSeznamPocitnic() {
+		return seznamPocitnic;
+	}
+
+	public void setSeznamPocitnic(List<Pocitnice> seznamPocitnic) {
+		this.seznamPocitnic = seznamPocitnic;
+	}
 	//getter in setter metode
 
 	/**
@@ -116,6 +143,7 @@ public class Paket extends Oddih{
 		this.stevilo_mest = stevilo_mest;
 	}
 	
+	
 	public String toStringVodici() {
 		System.out.println("V toStringVodici() metodi");
 		String str = new String();
@@ -128,8 +156,41 @@ public class Paket extends Oddih{
 
 		return str;	
 	}
+	
+	public String toStringIzleti() {
+		String str = new String();
+		
+		for(int i=0; i<seznamIzletov.size(); i++) {
+			str += "Izlet: " + (i+1) + "\n";
+			str += seznamIzletov.get(i).toString() + "\n\n";
+		}
+		
+		return str;
+	}
 
+	public String toStringKrizarjenja() {
+		String str = new String();
+		
+		for(int i=0; i<seznamKrizarjenj.size(); i++) {
+			str += "Krizarjenje: " + (i+1) + "\n";
+			str += seznamKrizarjenj.get(i).toString() + "\n\n";
+		}
+		
+		return str;
+	}
 
+	public String toStringPocitnice() {
+		String str = new String();
+		
+		for(int i=0; i<seznamPocitnic.size(); i++) {
+			str += "Pocitnice: " + (i+1) + "\n";
+			str += seznamPocitnic.get(i).toString() + "\n\n";
+		}
+		
+		return str;
+	}
+
+	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */

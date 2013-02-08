@@ -61,7 +61,7 @@ public class OknoVodici extends JPanel {
 	private JTextField jTextFieldIndeksVodica;
 	
 	// list za vodice
-	List<Vodic> seznamVodicev = new ArrayList<Vodic>(); // for storing Vodic into List
+	List<Vodic> seznamVodicev = new ArrayList<Vodic>(); 
 	Paket paket = new Paket();
 
 	
@@ -259,7 +259,7 @@ public class OknoVodici extends JPanel {
 	
 	private void initUrediVodica() {
 		JPanel panelUrediVodica = new JPanel();
-		panelUrediVodica.setLayout(new BoxLayout(panelUrediVodica, BoxLayout.X_AXIS));
+		//panelUrediVodica.setLayout(new BoxLayout(panelUrediVodica, BoxLayout.X_AXIS));
 		
 		JPanel panelUredi = new JPanel();
 		panelUredi.setLayout(new BoxLayout(panelUredi, BoxLayout.X_AXIS));
@@ -269,7 +269,7 @@ public class OknoVodici extends JPanel {
 		
 		System.out.println("seznamVodicev.size()" + seznamVodicev.size());
 		
-		jTextFieldIndeksVodica = new JTextField("0");
+		jTextFieldIndeksVodica = new JTextField("1");
 		panelUredi.add(jTextFieldIndeksVodica);
 		
 		
