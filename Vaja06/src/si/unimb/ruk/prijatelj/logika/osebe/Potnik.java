@@ -1,12 +1,13 @@
 package si.unimb.ruk.prijatelj.logika.osebe;
 
+import java.io.Serializable;
 import java.util.GregorianCalendar;
 
 /**
  * @author Joze
  *
  */
-public class Potnik extends Oseba{
+public class Potnik extends Oseba implements Serializable{
 	private String kontaktnaStevilka;
 	private String naslov;
 	private String posta;

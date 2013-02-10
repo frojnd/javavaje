@@ -4,10 +4,11 @@
  */
 package si.unimb.ruk.prijatelj.logika.oddihi;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Izlet extends Oddih{
+public class Izlet extends Oddih implements Serializable{
 
 	private String zbirnoMesto;
 	private String uraOdhoda;

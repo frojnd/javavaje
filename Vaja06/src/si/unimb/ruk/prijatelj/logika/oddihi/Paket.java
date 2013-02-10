@@ -1,5 +1,6 @@
 package si.unimb.ruk.prijatelj.logika.oddihi;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -13,7 +14,7 @@ import si.unimb.ruk.prijatelj.logika.osebe.Vodic;
  * @author Joze
  * Razred Paket izpeljan iz razreda Oddih
  */
-public class Paket extends Oddih{
+public class Paket extends Oddih implements Serializable{
 
 	private double cena;
 	private GregorianCalendar datum_zacetka;

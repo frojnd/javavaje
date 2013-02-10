@@ -1,6 +1,7 @@
 // razred omogoca prodajo aranzmajev, ki jih v agenciji ponujajo
 package si.unimb.ruk.prijatelj.logika;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
@@ -10,7 +11,7 @@ import si.unimb.ruk.prijatelj.logika.oddihi.Krizarjenje;
 import si.unimb.ruk.prijatelj.logika.oddihi.Oddih;
 import si.unimb.ruk.prijatelj.logika.oddihi.Pocitnice;
 
-public class Agencija {
+public class Agencija implements Serializable{
 	private List<Oddih> seznamOddihov = new ArrayList<Oddih>();
 
 	public Agencija() { }

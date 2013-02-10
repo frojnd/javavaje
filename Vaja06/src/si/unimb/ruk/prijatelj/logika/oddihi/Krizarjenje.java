@@ -4,7 +4,9 @@
  */
 package si.unimb.ruk.prijatelj.logika.oddihi;
 
-public class Krizarjenje extends Oddih{
+import java.io.Serializable;
+
+public class Krizarjenje extends Oddih implements Serializable{
 	private String nazivLadjarja;
 	private String mestoOdhoda;
 	

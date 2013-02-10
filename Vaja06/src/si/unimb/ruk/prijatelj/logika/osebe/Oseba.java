@@ -46,6 +46,7 @@ najdete v dokumentaciji Jave.
 /*
  * Razred Oseba naj ima atribute: ime, priimek, eposta, rojstni datum.
  */
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 
@@ -53,7 +54,7 @@ import java.util.GregorianCalendar;
  * @author Joze
  *
  */
-public abstract class Oseba {
+public abstract class Oseba implements Serializable {
 	private String ime;
 	private String priimek;
 	private String eposta;

@@ -3,6 +3,11 @@ package si.unimb.ruk.prijatelj.ui;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +38,10 @@ public class OknoKrizarjenja extends JPanel{
 		// initPreglejKrizarjenje()
 		private JTextArea jTextAreaPreglej;
 		private JButton jButtonPreglej;
+		private JLabel jLabelStream;
+		private JTextArea jTextAreaStream;
+		private JButton jButtonShrani;
+		private JButton jButtonNalozi;
 		
 		// initUrediKrizarjenje()
 		private JLabel jLabelIzberiIndeks;
@@ -125,6 +134,69 @@ public class OknoKrizarjenja extends JPanel{
 			
 			PoslusalecPreglej poslusalecPreglej = new PoslusalecPreglej();
 			jButtonPreglej.addActionListener(poslusalecPreglej);
+			
+			jLabelStream = new JLabel("\n");
+			panelPreglej.add(jLabelStream);
+			
+			jButtonShrani = new JButton("Serializiraj");
+			panelPreglej.add(jButtonShrani);
+			
+			jButtonShrani.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					System.out.println("VVVVV jButtonShrani.addActionListener");
+					/*
+					Krizarjenje krizarjenje = new Krizarjenje("Naziv");
+					krizarjenje.setNazivLadjarja("naziv ladjarja");
+					krizarjenje.setMestoOdhoda("mesto oddiha");
+					*/
+					
+					
+					try {
+						FileOutputStream fileOut = new FileOutputStream("Krizarjenje.ser");
+						ObjectOutputStream out = new ObjectOutputStream(fileOut);
+						//out.writeObject(seznamKrizarjenj.get(0).getNazivLadjarja());
+						out.writeObject(seznamKrizarjenj);
+						out.close();
+						fileOut.close();
+					}
+					catch(IOException i) {
+						i.printStackTrace();
+					}
+				}
+			});
+			
+			jButtonNalozi = new JButton("Deserializiraj");
+			panelPreglej.add(jButtonNalozi);
+			
+			jButtonNalozi.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					//List<Krizarjenje> seznamKrizarjenj = null;
+					seznamKrizarjenj = null;
+					try {
+						FileInputStream fileIn = new FileInputStream("Krizarjenje.ser");
+						ObjectInputStream in = new  ObjectInputStream(fileIn);
+						seznamKrizarjenj = (List<Krizarjenje>) in.readObject();
+						in.close();
+						fileIn.close();
+					}
+					catch(IOException i) {
+						i.printStackTrace();
+						return;
+					}
+					catch(ClassNotFoundException c) {
+						System.out.println("class not found");
+						c.printStackTrace();
+						return;
+					}
+					for(int i=0; i<seznamKrizarjenj.size(); i++) {
+						System.out.println(seznamKrizarjenj.get(i).toString());
+					}
+				}
+			});
 			
 			panelPreglejKrizarjenje.add(panelPreglej);
 			tabbed.add("Pregled", panelPreglejKrizarjenje);

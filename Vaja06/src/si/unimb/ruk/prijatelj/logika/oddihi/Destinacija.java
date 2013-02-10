@@ -1,5 +1,7 @@
 package si.unimb.ruk.prijatelj.logika.oddihi;
 
+import java.io.Serializable;
+
 /*
  * Razred Destinacija naj ima atribute: naziv, lokacija, država.
  */
@@ -10,7 +12,7 @@ package si.unimb.ruk.prijatelj.logika.oddihi;
  * @author Joze
  *
  */
-public class Destinacija {
+public class Destinacija implements Serializable{
 	private String naziv;
 	private String lokacija;
 	private String drzava;

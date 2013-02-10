@@ -19,6 +19,7 @@ package si.unimb.ruk.prijatelj.logika.oddihi;
  * datum konca oddiha, cena ter število mest
  */
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +31,7 @@ import si.unimb.ruk.prijatelj.logika.osebe.Vodic;
  * @author Joze
  *
  */
-public abstract class Oddih {
+public abstract class Oddih  implements Serializable{
 	protected String naziv;
 	protected Destinacija destinacija;
 	protected Oseba vodic;

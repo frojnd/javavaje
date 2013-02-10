@@ -1,0 +1,5 @@
+Izlet: 1
+Zbirno mesto: Zbirno mesto
+Ura odhoda: 20:00
+
+

@@ -6,7 +6,9 @@ Pocitnice, ki mu dodate atributoma naziv hotela, število zvezdic hotela,prevoz 
  */
 package si.unimb.ruk.prijatelj.logika.oddihi;
 
-public class Pocitnice extends Oddih{
+import java.io.Serializable;
+
+public class Pocitnice extends Oddih implements Serializable{
 	private String nazivHotela;
 	private int stZvezdic;
 	private Prevoz prevoz;

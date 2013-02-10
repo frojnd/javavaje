@@ -1,5 +1,6 @@
 package si.unimb.ruk.prijatelj.logika.osebe;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
@@ -8,7 +9,7 @@ import java.util.Vector;
  * @author Joze
  *
  */
-public class Vodic extends Oseba{
+public class Vodic extends Oseba implements Serializable{
 	
 	private boolean licencaGorskegaVodnika;
 	private List<Jezik> govori = new ArrayList<Vodic.Jezik>();

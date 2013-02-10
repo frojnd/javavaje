@@ -3,11 +3,18 @@ package si.unimb.ruk.prijatelj.ui;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
@@ -32,6 +39,11 @@ public class OknoIzleti extends JPanel{
 	// spremenljivke za initPreglejIzlet();
 	private JTextArea jTextAreaPregledIzleti;
 	private JButton jButtonPregledIzet;
+	private JTextArea jTextAreaStream;
+	private JButton jButtonShrani;
+	private JButton jButtonNalozi;
+	private JFileChooser jFileChooserNalozi;
+	private JFileChooser jFileChooserShrani;
 	
 	// spremenljivke za initUrediIzlet()
 	private JLabel jLabelIzberiIndeks;
@@ -127,6 +139,89 @@ public class OknoIzleti extends JPanel{
 		
 		PoslusalecIzletPregled poslusalecIzletPregled = new PoslusalecIzletPregled();
 		jButtonPregledIzet.addActionListener(poslusalecIzletPregled);
+		
+		JLabel jLabelStream = new JLabel("Izpis podatkov:");
+		panelPregledIzlet.add(jLabelStream);
+		
+		jTextAreaStream = new JTextArea();
+		panelPregledIzlet.add(jTextAreaStream);
+		
+		jButtonShrani = new JButton("Shrani v datoteko");
+		panelPregledIzlet.add(jButtonShrani);
+		
+		jFileChooserShrani = new JFileChooser();
+		jFileChooserShrani.setDialogTitle("Kam zelis shraniti"); 
+		//panelPregledIzlet.add(jFileChooserShrani);
+		
+		jButtonShrani.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				
+				jTextAreaStream.setText("test");
+				String fileName = "temp.txt";
+				try {
+					// assume defalut encoding
+					FileWriter filewriter = new FileWriter(fileName);
+					
+					// allways wrap FileWriter in BufferedWriter
+					BufferedWriter bufferedWriter = new BufferedWriter(filewriter);
+					
+					// write() does not automatically append a newline character
+					bufferedWriter.write(jTextAreaPregledIzleti.getText());
+					
+					// allways close files
+					bufferedWriter.close();
+				}
+				catch(IOException ex) {
+					System.out.println("Error writing to file: " + fileName);
+					// or we could just do that:
+					// ex.printStackTrace();
+				}
+			}
+		});
+		
+		jButtonNalozi = new JButton("Naloži iz datoteke");
+		panelPregledIzlet.add(jButtonNalozi);
+		
+		jButtonNalozi.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// ime datoteke za odpret (enako kot za shranit)
+				String fileName = "temp.txt";
+				
+				// za referencirat vsako vrstico posebej
+				String line = null;
+				
+				try {
+					// FileReader bere text v default encodingu
+					FileReader fileReader = new FileReader(fileName);
+					
+					// vedno ovij FileReader v BufferedReader
+					BufferedReader bufferedReader = new BufferedReader(fileReader);
+					
+					
+					jTextAreaStream.read(bufferedReader, "jTextArea1");
+					/*
+					while((line = bufferedReader.readLine()) != null) {
+						System.out.println(line);
+					}
+					*/
+					
+					// vedno zapri datoteke
+					bufferedReader.close();
+					
+				}
+				catch(FileNotFoundException ex) {
+					System.out.println("Unable to open file" + fileName);
+				}
+				catch(IOException ex) {
+					System.out.println("Error reading file" + fileName);
+					//ex.printStackTrace();
+				}
+			}
+		});
 		
 		panelPreglejIzlet.add(panelPregledIzlet);
 		tabbed.add("Pregled", panelPreglejIzlet);
