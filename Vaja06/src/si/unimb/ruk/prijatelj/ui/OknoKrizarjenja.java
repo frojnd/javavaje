@@ -10,6 +10,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.zip.GZIPInputStream;
+import java.util.zip.GZIPOutputStream;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -154,9 +156,13 @@ public class OknoKrizarjenja extends JPanel{
 					
 					
 					try {
+						/*
 						FileOutputStream fileOut = new FileOutputStream("Krizarjenje.ser");
 						ObjectOutputStream out = new ObjectOutputStream(fileOut);
-						//out.writeObject(seznamKrizarjenj.get(0).getNazivLadjarja());
+						*/
+						FileOutputStream fileOut = new FileOutputStream("Krizarjenje.zip");
+						ObjectOutputStream out = new ObjectOutputStream(new GZIPOutputStream(fileOut));
+						
 						out.writeObject(seznamKrizarjenj);
 						out.close();
 						fileOut.close();
